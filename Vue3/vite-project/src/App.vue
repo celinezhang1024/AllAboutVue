@@ -16,7 +16,10 @@
     <!-- 提交不刷新.prevent -->
     <button @click.prevent="clickTapC" type="submit">提交</button> 
   </form>
-  <div v-bind:style="style"> v-bind style</div>
+  <div v-bind:style="style">v-bind绑定 style</div>
+  <div :class="['a','b']">v-bind绑定 class</div>
+  <div :class="[flag?'a':'c']">:绑定选择 class</div>
+  <div :class="bStyle"></div>
 </template>
 
 <script setup lang="ts">
@@ -38,9 +41,26 @@
   }
   const style:Style = {
     color:'red',
-    height:'14px'
+    height:'20px'
+  }
+  // style选择配置
+  type BoxStyle = {
+    border: boolean,
+    shadow: boolean,
+    padding: boolean,
+  }
+  const bStyle:BoxStyle = {
+    border: true,
+    shadow: true,
+    padding: true,
   }
 </script>
 
 <style scoped> 
+.a{color:blue;}
+.b{font-weight: 700;}
+.c{color:yellow;}
+.border{border:1px solid #cccccc;}
+.shadow{box-shadow: inset 5px 5px 5px #ff0;}
+.padding{padding:10px;}
 </style>
