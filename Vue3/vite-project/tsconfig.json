@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    // 允许从没有设置默认导出的模块中默认导入。这并不影响代码的输出，仅为了类型检查。
+    "allowSyntheticDefaultImports": true,
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
@@ -8,11 +10,15 @@
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "vueCompilerOptions": {
+      "experimentalDisableTemplateSupport": true //去掉volar下el标签红色波浪线问题
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
