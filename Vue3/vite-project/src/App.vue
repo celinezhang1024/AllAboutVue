@@ -2,8 +2,10 @@
 <template> 
   <div>
     <!-- 基础用法 -->
-    <Basic />
+    <!-- <Basic /> -->
+    <!-- 钩子函数 -->
     <Ref /> 
+    
   </div>
 </template>
 
