@@ -1,3 +1,4 @@
+<!-- 基础语法 -->
 <script setup lang="ts">
   const message:string = 'Celine'
   const flag:boolean = false 

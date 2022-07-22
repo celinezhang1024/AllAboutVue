@@ -1,13 +1,17 @@
-
-<style>
-</style>
-
+<!-- 钩子函数 -->
 <template>
     <div>1. v-model+钩子函数 <input v-model="userName1" type="text" /> {{userName1}} </div> 
+
     <div>2. Ref 钩子函数-接口 {{userName2}} <button @click="changeMsg">改变hook的值</button></div> 
+
     <div>3. 浅复制 shallowRef {{shallowMsg}} <button @click="changeShllowMsg">修改shallow的value</button></div>
+
     <div>4. triggerRef 强制更新视图 {{shallowMsg}}</div>
+
     <div>5. customRef 自定义Ref <button @click="changeMsg5">自定义Ref修改其值</button> {{messageMyRef}}</div>
+
+    <div>6. Ref的更新=> shallowRef的更新 {{R}}<button @click="change6">影响</button> {{message6}}</div>
+
 </template>
 
 <script setup lang="ts"> 
@@ -55,6 +59,19 @@
   let messageMyRef = MyRef<string>('小Celine')
   const changeMsg5 = () =>{
     messageMyRef.value = "大Celine"
+  }
+
+  // 6.
+  const R = ref('hello')
+  const message6 = shallowRef({
+    foo:"foo",
+    bar:"bar"
+  })
+
+  const change6 = ()=>{
+    R.value = 'SB'
+    message6.value.foo = 'msg6'
+    console.log(message6)
   }
 
 </script>
