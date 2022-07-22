@@ -6,7 +6,8 @@
     <!-- <Reactive/> -->
     <!-- <AllRefsVue/> -->
     <!-- <Computed/> -->
-    <ShopCar/>
+    <!-- <ShopCar/> -->
+    <Watch/>
   </div>
 </template>
 
@@ -18,6 +19,7 @@
   import AllRefsVue from "./components/AllRefs.vue"
   import Computed from "./components/Computed.vue"
   import ShopCar from "./components/ShopCar.vue"
+  import Watch from "./components/Watch.vue"
 </script>
 
 <style scoped>
