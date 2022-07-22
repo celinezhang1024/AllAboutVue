@@ -4,16 +4,18 @@
     <!-- <Basic /> --> 
     <!-- <Ref />  -->
     <!-- <Reactive/> -->
-    <AllRefsVue/>
+    <!-- <AllRefsVue/> -->
+    <Computed/>
   </div>
 </template>
 
 <script setup lang="ts">
   import Basic from "./components/Basic.vue"
-  import Ref from './components/Ref.vue'  
-  import HelloWorld from './components/HelloWorld.vue'
-  import Reactive from './components/Reactive.vue'
+  import Ref from "./components/Ref.vue"  
+  import HelloWorld from "./components/HelloWorld.vue"
+  import Reactive from "./components/Reactive.vue"
   import AllRefsVue from "./components/AllRefs.vue"
+  import Computed from "./components/Computed.vue"
 </script>
 
 <style scoped>
