@@ -1,6 +1,6 @@
 
 <template> 
-  <div> 
+  <div class="frame"> 
     <!-- 基础功能 -->
     <!-- <Basic /> --> 
     <!-- <Ref />  -->
@@ -40,8 +40,8 @@
 
 </script>
 
-<style scoped lang="less">
-html,body,#app{
+<style lang="less">
+html,body,#app,.frame{
   height: 100%;
   overflow: hidden;
 }

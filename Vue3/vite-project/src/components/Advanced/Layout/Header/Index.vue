@@ -1,5 +1,5 @@
 <template> 
-    <div>头部区域</div>
+    <div class="header">头部区域</div>
 </template>
 
 <script setup lang="ts">
@@ -7,5 +7,5 @@
 </script>
 
 <style lang="less">
-
+.header{height:60px;border-bottom: 1px solid #ccc;}
 </style>

@@ -1,5 +1,5 @@
 <template> 
-    <div>菜单区域</div> 
+    <div class="menu">菜单区域</div> 
 </template>
 
 <script setup lang="ts">
@@ -7,5 +7,5 @@
 </script>
 
 <style lang="less">
-
+.menu{width:200px;border-right:1px solid #ccc;}
 </style>

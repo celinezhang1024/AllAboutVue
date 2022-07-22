@@ -1,9 +1,7 @@
 <template> 
-    <div>
-        <div>
-            <Menu />
-        </div>
-        <div>
+    <div class="layout"> 
+        <Menu /> 
+        <div class="layout-right">
             <Header />
             <Content />
         </div>
@@ -18,5 +16,7 @@ import Content from "./Content/Index.vue"
 </script>
 
 <style lang="less">
-
+.layout{display: flex;height: 100%;overflow: hidden;
+    &-right{flex:1;display: flex;flex-direction: column;} // .layout-right🔥
+} 
 </style>
