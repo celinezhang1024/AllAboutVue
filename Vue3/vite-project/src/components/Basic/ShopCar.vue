@@ -1,3 +1,4 @@
+<!-- 6. computed购物车 -->
 <template>
   <div>
     <table border style="width:800px">

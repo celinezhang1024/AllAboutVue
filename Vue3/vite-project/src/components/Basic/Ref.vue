@@ -1,4 +1,4 @@
-<!-- 钩子函数 -->
+<!-- 2. 钩子函数 -->
 <template>
     <div>1. v-model+钩子函数 <input v-model="userName1" type="text" /> {{userName1}} </div> 
 

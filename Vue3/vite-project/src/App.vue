@@ -1,26 +1,43 @@
 
 <template> 
   <div> 
+    <!-- 基础功能 -->
     <!-- <Basic /> --> 
     <!-- <Ref />  -->
     <!-- <Reactive/> -->
     <!-- <AllRefsVue/> -->
     <!-- <Computed/> -->
     <!-- <ShopCar/> -->
-    <WatchEffect/>
+    <!-- <Watch/> -->
+    <!-- <WatchEffect/> -->
+
+    <!-- 高级功能 -->
+    <!-- <LifeCycleVue v-if="flag" />
+    <button @click="unLoadLifeCycle">加载/卸载组件</button> -->
+    
   </div>
 </template>
 
 <script setup lang="ts">
-  import Basic from "./components/Basic.vue"
-  import Ref from "./components/Ref.vue"  
-  import HelloWorld from "./components/HelloWorld.vue"
-  import Reactive from "./components/Reactive.vue"
-  import AllRefsVue from "./components/AllRefs.vue"
-  import Computed from "./components/Computed.vue"
-  import ShopCar from "./components/ShopCar.vue"
-  import Watch from "./components/Watch.vue"
-  import WatchEffect from "./components/WatchEffect.vue"
+  import {ref} from 'vue'
+  // 基础功能
+  import Basic from "./components/Basic/Basic.vue"
+  import Ref from "./components/Basic/Ref.vue"   
+  import Reactive from "./components/Basic/Reactive.vue"
+  import AllRefsVue from "./components/Basic/AllRefs.vue"
+  import Computed from "./components/Basic/Computed.vue"
+  import ShopCar from "./components/Basic/ShopCar.vue"
+  import Watch from "./components/Basic/Watch.vue"
+  import WatchEffect from "./components/Basic/WatchEffect.vue"
+  // 高级功能
+  // import LifeCycleVue from "./components/Advanced/LifeCycle.vue" // + 配合生命周期的代码
+
+  
+  // const flag = ref<boolean>(true); // + 配合生命周期的代码
+  // const unLoadLifeCycle = ()=>{
+  //   flag.value = !flag.value;
+  // }
+
 </script>
 
 <style scoped>

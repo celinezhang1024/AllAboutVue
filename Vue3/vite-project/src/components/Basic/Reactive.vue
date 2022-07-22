@@ -1,4 +1,4 @@
-<!-- 响应式副本 -->
+<!-- 3. 响应式副本 -->
 <template>
     <div>
         <div>arr {{ message }} </div>

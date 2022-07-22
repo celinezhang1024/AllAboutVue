@@ -1,3 +1,4 @@
+<!-- 7. watch -->
 <template>
   1. 同时监听2个值
   <input v-model="message" type="text" />
@@ -35,12 +36,12 @@
     }
   })
 
-  watch(obj,(newVal,oldVal) =>{
+  watch(obj,(newVal,oldVal) =>{ // watch默认不被触发，但是加了immediate会
     console.log('新的：' , newVal) 
     console.log("旧的", oldVal)
   },{
     deep:true,
-    immediate:true // 默认第一次跳过watch，所以第一次oldVal是undefined
+    immediate:true // 设置后默认第一次跳过watch，所以第一次oldVal是undefined
   }) 
 
   // 3. reactive
