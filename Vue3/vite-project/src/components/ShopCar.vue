@@ -21,14 +21,15 @@
         <td></td> 
         <td></td>
         <td></td>
-        <td align="center">总价：500</td>
+        <td align="center">总价：{{$total}}</td>
       </tfoot>
     </table>
   </div>
 </template>
 <script setup lang="ts">
-import {reactive} from 'vue'
+import {reactive,ref} from 'vue'
 type Goods = {name:string,num:number,price:number}
+let $total = ref(0)
 const data = reactive<Goods[]>([
   {name:'裤子',num:1,price:100},
   {name:'衣服',num:1,price:200},
@@ -42,15 +43,18 @@ const addAndSub = (item:Goods,type:boolean):void =>{
   if(item.num < 99 && type){
     item.num++;
   }
+  total()
 }
 
 const del = (index:number):void =>{
   data.splice(index,1) // (删除的索引，个数)
+  total()
 }
 
 const total = ()=>{
-  data.reduce((prev,next) =>{
+  $total.value = data.reduce((prev,next) =>{
     return prev+ (next.num* next.price)
   },0)
 }
+total()
 </script>
