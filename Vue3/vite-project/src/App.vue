@@ -3,7 +3,8 @@
   <div> 
     <!-- <Basic /> --> 
     <!-- <Ref />  -->
-    <Reactive/>
+    <!-- <Reactive/> -->
+    <AllRefsVue/>
   </div>
 </template>
 
@@ -12,6 +13,7 @@
   import Ref from './components/Ref.vue'  
   import HelloWorld from './components/HelloWorld.vue'
   import Reactive from './components/Reactive.vue'
+  import AllRefsVue from "./components/AllRefs.vue"
 </script>
 
 <style scoped>
