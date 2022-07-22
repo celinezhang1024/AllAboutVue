@@ -1,3 +1,4 @@
+<!-- 1. 生命周期 -->
 <template>
   <div id="hello"></div>
 

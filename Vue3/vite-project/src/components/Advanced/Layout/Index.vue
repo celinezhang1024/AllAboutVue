@@ -1,3 +1,4 @@
+<!-- 2. 布局 -->
 <template> 
     <div class="layout"> 
         <Menu /> 

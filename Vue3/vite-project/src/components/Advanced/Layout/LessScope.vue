@@ -1,3 +1,4 @@
+<!-- 安装Less方法 -->
 <template>
     <div>npm install less less-loader -D</div>
 </template>
