@@ -1,15 +1,18 @@
 <template>
-  同事监听2个值
+  1. 同时监听2个值
   <input v-model="message" type="text" />
   <br/>
   <input v-model="message2" type="text" />
   <br/>
-  ref deep:true
+  2. ref deep:true
   <input v-model="obj.nav.bar.name" type="text"/>
   <br/>
-  reactive
+  3. reactive
   <input v-model="rectiveObj.nav.bar.name" type="text"/>
   <br/>
+  4. 只监听name1
+  <input v-model="partObj.name1" type="text" />
+  <input v-model="partObj.name2" type="text" />
 </template>
 
 <script setup lang="ts">
@@ -53,4 +56,14 @@
     console.log("旧的", oldVal)
   })
 
+  // 组合监听 = 单一监听
+  let partObj = reactive({
+    name1:"1",
+    name2:"2"
+  })
+
+  watch(() => partObj.name1, (newVal,oldVal)=>{ // 只监听了name1
+    console.log('新的：' , newVal) 
+    console.log("旧的", oldVal)
+  })
 </script>
