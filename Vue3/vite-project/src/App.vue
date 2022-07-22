@@ -41,8 +41,5 @@
 </script>
 
 <style lang="less">
-html,body,#app,.frame{
-  height: 100%;
-  overflow: hidden;
-}
+html,body,#app,.frame{height: 100%;overflow: hidden;}
 </style>
