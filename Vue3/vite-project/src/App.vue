@@ -5,7 +5,8 @@
     <!-- <Ref />  -->
     <!-- <Reactive/> -->
     <!-- <AllRefsVue/> -->
-    <Computed/>
+    <!-- <Computed/> -->
+    <ShopCar/>
   </div>
 </template>
 
@@ -16,6 +17,7 @@
   import Reactive from "./components/Reactive.vue"
   import AllRefsVue from "./components/AllRefs.vue"
   import Computed from "./components/Computed.vue"
+  import ShopCar from "./components/ShopCar.vue"
 </script>
 
 <style scoped>
