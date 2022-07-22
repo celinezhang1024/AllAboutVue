@@ -7,7 +7,7 @@
     <!-- <AllRefsVue/> -->
     <!-- <Computed/> -->
     <!-- <ShopCar/> -->
-    <Watch/>
+    <WatchEffect/>
   </div>
 </template>
 
@@ -20,6 +20,7 @@
   import Computed from "./components/Computed.vue"
   import ShopCar from "./components/ShopCar.vue"
   import Watch from "./components/Watch.vue"
+  import WatchEffect from "./components/WatchEffect.vue"
 </script>
 
 <style scoped>
