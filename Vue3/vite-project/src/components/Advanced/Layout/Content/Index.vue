@@ -1,5 +1,5 @@
 <template> 
-    <div class="content">
+    <div class="content" style="background: red;position:relative;"  >
         <!-- 1. 列表 -->
         <!-- <div class="content-item" :key="item" v-for="item in 100"> 
             {{item}}
@@ -26,7 +26,7 @@
                 <div>我在哪</div>
             </template>
         </Dialog> -->
-        <!-- 5. Teleport 传送组件, to插入到哪个组件里 html也可以 -->
+        <!-- 5. Teleport 传送组件, to插入到哪个组件里 html也可以。但是会被v-if影响 -->
         <teleport to="body">
             <div class="content-loading">loading...</div>
         </teleport>
@@ -50,6 +50,6 @@ let name = ref('footer') // footer default header
 <style lang="less">
 .content{flex:1;margin:20px; overflow:auto;
     &-item{padding:20px;border:1px solid #ccc;}
-    &-loading{position:fixed;bottom:0;left:0;}
+    &-loading{position:absolute;top:10px;right:10px;background:blue;}
 }
 </style>
