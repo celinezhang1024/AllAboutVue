@@ -14,7 +14,7 @@
     <!-- 高级功能 -->
     <!-- <LifeCycleVue v-if="flag" />
     <button @click="unLoadLifeCycle">加载/卸载组件</button> -->
-    <Layout/>
+    <Layout/> 
   </div>
 </template>
 
@@ -32,6 +32,7 @@
   // 高级功能
   import LifeCycleVue from "./components/Advanced/LifeCycle.vue" // + 配合生命周期的代码
   import Layout from "./components/Advanced/Layout/Index.vue"
+  
   
   // const flag = ref<boolean>(true); // + 配合生命周期的代码
   // const unLoadLifeCycle = ()=>{

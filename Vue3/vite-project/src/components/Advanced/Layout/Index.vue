@@ -27,7 +27,7 @@ const getList2 = ((list:number[],flag:boolean)=>{
 })
 </script>
 
-<style lang="less">
+<style scoped lang="less">
 .layout{display: flex;height: 100%;overflow: hidden;
     &-right{flex:1;display: flex;flex-direction: column;} // .layout-right🔥
 } 

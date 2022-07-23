@@ -3,13 +3,13 @@
         <div>{{title}}</div>
         <div>{{notice}}</div>
         <div>{{data}}</div> 
-    </div> 
-    <div> 
-        <div>
-            <button @click="clickTap">派发</button>
-            <button @click="clickTap2">派发2</button>
+        <div> 
+            <div>
+                <button @click="clickTap">派发</button>
+                <button @click="clickTap2">派发2</button>
+            </div>
         </div>
-    </div>
+    </div>  
 </template>
 
 <script setup lang="ts">
