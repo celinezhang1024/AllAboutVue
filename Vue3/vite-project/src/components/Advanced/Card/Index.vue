@@ -1,4 +1,4 @@
-<!-- 卡片 -->
+<!-- 全局卡片 -->
 <template>
    <div class="card">
        <div class="card-header">

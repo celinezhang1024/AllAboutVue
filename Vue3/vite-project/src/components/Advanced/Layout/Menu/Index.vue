@@ -1,5 +1,6 @@
 <template> 
     <div class="menu">菜单区域
+        <!-- 事件 & 属性
         <div>{{title}}</div>
         <div>{{notice}}</div>
         <div>{{data}}</div> 
@@ -8,12 +9,14 @@
                 <button @click="clickTap">派发</button>
                 <button @click="clickTap2">派发2</button>
             </div>
-        </div>
+        </div> -->
+        <Tree :data="data"></Tree>
     </div>  
 </template>
 
 <script setup lang="ts">
 import {reactive,ref} from "vue"
+import Tree from "../../Tree/Index.vue"
 type Props={title?:string,data?:number[],notice?:string} //?:可选
 // defineProps<Props>() //没有默认值
 withDefaults(defineProps<Props>(),{ // 有默认值
@@ -34,6 +37,41 @@ const clickTap2 = () =>{
 // 暴露实例 比vue2更安全
 defineExpose({list}) //,flag
 
+
+// 下面是Tree
+type TreeList = {
+    name:string,
+    icon?:string,
+    children?:TreeList[] | []
+}
+const data = reactive<TreeList[]>([
+    {
+        name:"no.1",
+        children:[
+            {
+                name:"no.1-1",
+                children:[
+                    {
+                        name:"no.1-1-1"
+                    }
+                ]
+            }
+        ]
+    },
+    {   name:"no.2",
+        children:[
+            {
+                name:"no.2"
+            }
+        ]
+    },
+    {
+        name:"no.3"
+    },
+    {
+        name:"no.4"
+    }
+])
 </script>
 
 <style lang="less">

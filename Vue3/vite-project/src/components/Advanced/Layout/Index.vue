@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { reactive,ref } from "vue";
-import Menu from "./Menu/Index.vue"
+import Menu from "./Menu/Index.vue" //2. 局部组件
 import Header from "./Header/Index.vue"
 import Content from "./Content/Index.vue"
 const list = reactive<number[]>([1,2,3])
