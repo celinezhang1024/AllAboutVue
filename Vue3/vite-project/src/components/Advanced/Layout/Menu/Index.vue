@@ -10,7 +10,7 @@
                 <button @click="clickTap2">派发2</button>
             </div>
         </div> -->
-        <Tree :data="data"></Tree>
+        <Tree @on-click="getItem" :data="data"></Tree>
     </div>  
 </template>
 
@@ -72,6 +72,9 @@ const data = reactive<TreeList[]>([
         name:"no.4"
     }
 ])
+const getItem = (item:TreeList)=>{
+    console.log(item,'父组件的item')
+}
 </script>
 
 <style lang="less">
