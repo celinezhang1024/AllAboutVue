@@ -1,6 +1,7 @@
 <template> 
     <div class="menu">菜单区域
         <div>{{title}}</div>
+        <div>{{notice}}</div>
         <div>{{data}}</div> 
     </div> 
     <div> 
@@ -13,8 +14,13 @@
 
 <script setup lang="ts">
 import {reactive,ref} from "vue"
-type Props={title:string,data:number[]}
-defineProps<Props>() 
+type Props={title?:string,data?:number[],notice?:string} //?:可选
+// defineProps<Props>() //没有默认值
+withDefaults(defineProps<Props>(),{ // 有默认值
+    title: '',
+    data:()=>[1,2,3,4],
+    notice:'我是默内容'
+})
 
 const list = reactive<number[]>([1,2,3,4,5])
 const flag = ref(false)
