@@ -14,12 +14,22 @@
     <!-- 高级功能 -->
     <!-- <LifeCycleVue v-if="flag" />
     <button @click="unLoadLifeCycle">加载/卸载组件</button> --> 
-    <Layout/>  
+    <!-- <Layout/>   -->
+    <!-- 异步组件，打包时会拆开-->
+    <Suspense> 
+      <template #default> 
+        <API />
+      </template>
+      <template #fallback>
+        <div>loading...</div>
+      </template>
+    </Suspense>
+
   </div>
 </template>
 
 <script setup lang="ts">
-  import {ref} from 'vue'
+  import {ref, defineAsyncComponent} from 'vue'
   // 基础功能
   import Basic from "./components/Basic/Basic.vue"
   import Ref from "./components/Basic/Ref.vue"   
@@ -27,12 +37,15 @@
   import AllRefsVue from "./components/Basic/AllRefs.vue"
   import Computed from "./components/Basic/Computed.vue"
   import ShopCar from "./components/Basic/ShopCar.vue"
+  
   import Watch from "./components/Basic/Watch.vue"
   import WatchEffect from "./components/Basic/WatchEffect.vue"
   // 高级功能
   import LifeCycleVue from "./components/Advanced/LifeCycle.vue" // + 配合生命周期的代码
-  import Layout from "./components/Advanced/Layout/Index.vue" 
-  
+  import Layout from "./components/Advanced/Layout/Index.vue"  
+   
+  const API = defineAsyncComponent(()=> import("./components/Advanced/API/Index.vue"))
+
   // const flag = ref<boolean>(true); // + 配合生命周期的代码
   // const unLoadLifeCycle = ()=>{
   //   flag.value = !flag.value;
