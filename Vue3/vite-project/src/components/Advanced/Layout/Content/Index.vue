@@ -21,11 +21,15 @@
             </template>
         </Dialog> -->
         <!-- 4. 动态插槽 -->
-        <Dialog>
+        <!-- <Dialog>
             <template #[name]>
                 <div>我在哪</div>
             </template>
-        </Dialog>
+        </Dialog> -->
+        <!-- 5. Teleport 传送组件, to插入到哪个组件里 html也可以 -->
+        <teleport to="body">
+            <div class="content-loading">loading...</div>
+        </teleport>
     </div>
 </template>
 
@@ -39,9 +43,13 @@ import Dialog from "../../Dialog/Index.vue"
 
 // 4. 动态插槽，可选择上中下
 let name = ref('footer') // footer default header
+
+
+
 </script> 
 <style lang="less">
 .content{flex:1;margin:20px; overflow:auto;
     &-item{padding:20px;border:1px solid #ccc;}
+    &-loading{position:fixed;bottom:0;left:0;}
 }
 </style>

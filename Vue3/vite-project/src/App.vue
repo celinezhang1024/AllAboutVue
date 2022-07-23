@@ -14,16 +14,16 @@
     <!-- 高级功能 -->
     <!-- <LifeCycleVue v-if="flag" />
     <button @click="unLoadLifeCycle">加载/卸载组件</button> --> 
-    <!-- <Layout/>   -->
+    <Layout/>  
     <!-- 异步组件，打包时会拆开-->
-    <Suspense> 
+    <!-- <Suspense> 
       <template #default> 
         <API />
       </template>
       <template #fallback>
         <div>loading...</div>
       </template>
-    </Suspense>
+    </Suspense> -->
 
   </div>
 </template>
