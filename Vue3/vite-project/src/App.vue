@@ -28,7 +28,8 @@
     <!-- <ProvideInject/> -->
     <!-- 发布订阅 -->
     <!-- <EventBus/> -->
-    <MittC />
+    <!-- <MittC /> -->
+    <Tsx />
   </div>
 </template>
 
@@ -51,6 +52,7 @@
   import ProvideInject from "./components/Advanced/ProvideInject/Index.vue" // 数据跨层传递
   import EventBus from "./components/Advanced/EvventBus/Index.vue" // 发布订阅
   import MittC from './components/Advanced/Mitt/Index.vue'
+  import Tsx from './components/Advanced/TSX/Index.vue'
    
   const API = defineAsyncComponent(()=> import("./components/Advanced/API/Index.vue"))
 
