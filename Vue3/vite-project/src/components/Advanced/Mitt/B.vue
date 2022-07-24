@@ -21,6 +21,8 @@ const BusEvent = (str:any)=>{
 instance?.proxy?.$Bus.on('on-celine',BusEvent)
 instance?.proxy?.$Bus.off('on-celine',BusEvent)
 
+instance?.proxy?.$Bus.all.clear() // 删除全部
+
 </script>
 
 <style scoped lang='less'>
