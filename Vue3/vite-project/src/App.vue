@@ -14,7 +14,7 @@
     <!-- 高级功能 -->
     <!-- <LifeCycleVue v-if="flag" />
     <button @click="unLoadLifeCycle">加载/卸载组件</button> --> 
-    <Layout/>  
+    <!-- <Layout/>   -->
     <!-- 异步组件，打包时会拆开-->
     <!-- <Suspense> 
       <template #default> 
@@ -24,6 +24,7 @@
         <div>loading...</div>
       </template>
     </Suspense> -->
+    <DynamicCard/>
 
   </div>
 </template>
@@ -43,6 +44,7 @@
   // 高级功能
   import LifeCycleVue from "./components/Advanced/LifeCycle.vue" // + 配合生命周期的代码
   import Layout from "./components/Advanced/Layout/Index.vue"  
+  import DynamicCard from "./components/Advanced/DynamicCard/Index.vue" // 洗牌动画效果
    
   const API = defineAsyncComponent(()=> import("./components/Advanced/API/Index.vue"))
 
