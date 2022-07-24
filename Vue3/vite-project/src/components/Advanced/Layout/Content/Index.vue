@@ -1,5 +1,5 @@
 <template> 
-    <div class="content" style="background: red;position:relative;"  >
+    <div class="content" style="position:relative;"  >
         <!-- 1. 列表 -->
         <!-- <div class="content-item" :key="item" v-for="item in 100"> 
             {{item}}
@@ -27,9 +27,15 @@
             </template>
         </Dialog> -->
         <!-- 5. Teleport 传送组件, to插入到哪个组件里 html也可以。但是会被v-if影响 -->
-        <teleport to="body">
+        <!-- <teleport to="body">
             <div class="content-loading">loading...</div>
-        </teleport>
+        </teleport> -->
+        <!-- 6. Login -->
+        <button @click="switchCom">切换</button>
+        <keep-alive>
+            <Login v-if="flag"></Login>
+            <Reg v-else></Reg> 
+        </keep-alive>
     </div>
 </template>
 
@@ -40,10 +46,18 @@ import Vue2 from "../../Is/Vue2.vue"
 
 // 插槽
 import Dialog from "../../Dialog/Index.vue"
+// 6. Login
+import Login from "../../Login/Index.vue"
+import Reg from "../../Register/Index.vue"
 
 // 4. 动态插槽，可选择上中下
 let name = ref('footer') // footer default header
 
+// 6. Login
+const flag = ref(true)
+const switchCom = () =>{
+    flag.value = !flag.value
+}
 
 
 </script> 
