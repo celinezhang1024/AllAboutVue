@@ -25,8 +25,8 @@
       </template>
     </Suspense> -->
     <!-- <DynamicCard/> -->
-    <ProvideInject/>
-
+    <!-- <ProvideInject/> -->
+    <EventBus/>
   </div>
 </template>
 
@@ -47,6 +47,8 @@
   import Layout from "./components/Advanced/Layout/Index.vue"  
   import DynamicCard from "./components/Advanced/DynamicCard/Index.vue" // 洗牌动画效果
   import ProvideInject from "./components/Advanced/ProvideInject/Index.vue" // 数据跨层传递
+  import EventBus from "./components/Advanced/EvventBus/Index.vue" // 发布订阅
+
    
   const API = defineAsyncComponent(()=> import("./components/Advanced/API/Index.vue"))
 
