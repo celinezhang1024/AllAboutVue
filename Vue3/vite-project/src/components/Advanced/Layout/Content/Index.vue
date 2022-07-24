@@ -38,9 +38,13 @@
         </keep-alive> -->
         <!-- 7. transition -->
         <button @click="flagShow = !flagShow">显示/隐藏</button>
-        <transition name="fade"> 
+        <!-- <transition name="fade" enter-from-class="e-from" enter-active-class="e-active" enter-to-class="e-to"> 
             <div v-show="flagShow" class="content-box"></div>
-        </transition>
+        </transition> -->
+        <!-- 使用animate库 npm install animate.css -S -->
+        <transition name="fade" leave-active-class="animate__animated animate__bounce" enter-active-class="animate__animated animate__fadeIn"> 
+            <div v-show="flagShow" class="content-box"></div>
+        </transition> 
     </div>
 </template>
 
@@ -54,6 +58,7 @@ import Dialog from "../../Dialog/Index.vue"
 // 6. Login
 import Login from "../../Login/Index.vue"
 import Reg from "../../Register/Index.vue"
+import "animate.css"
 
 // 4. 动态插槽，可选择上中下
 let name = ref('footer') // footer default header
@@ -73,12 +78,12 @@ const flagShow = ref(true)
     &-loading{position:absolute;top:10px;right:10px;background:blue;} 
     &-box{background: red;width: 200px;height: 200px;}
     
-    .fade-enter-from{width: 0;height: 0;transform: rotate(-360deg);}
-    .fade-enter-active{transition: all .5s ease-in-out;}
-    .fade-enter-to{width: 200px;height: 200px;}
+    // .e-from{width: 0;height: 0;transform: rotate(-360deg);}
+    // .e-active{transition: all .5s ease-in-out;}
+    // .ec-to{width: 200px;height: 200px;}
 
-    .fade-leave-from{width: 200px;height: 200px;transform: rotate(360deg);}
-    .fade-leave-active{transition: all .5s ease-in-out;}
-    .fade-leave-to{width: 0;height: 0;}
+    // .fade-leave-from{width: 200px;height: 200px;transform: rotate(360deg);}
+    // .fade-leave-active{transition: all .5s ease-in-out;}
+    // .fade-leave-to{width: 0;height: 0;}
 }
 </style>
