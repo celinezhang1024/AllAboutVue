@@ -30,9 +30,9 @@
         <!-- <teleport to="body">
             <div class="content-loading">loading...</div>
         </teleport> -->
-        <!-- 6. Login -->
+        <!-- 6. Login  keep-alive :include 可以指定缓存组件的名称 :exclude 不缓存-->
         <button @click="switchCom">切换</button>
-        <keep-alive>
+        <keep-alive :max="10" :include="['Login']">
             <Login v-if="flag"></Login>
             <Reg v-else></Reg> 
         </keep-alive>
