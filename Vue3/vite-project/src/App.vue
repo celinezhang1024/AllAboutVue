@@ -24,7 +24,8 @@
         <div>loading...</div>
       </template>
     </Suspense> -->
-    <DynamicCard/>
+    <!-- <DynamicCard/> -->
+    <ProvideInject/>
 
   </div>
 </template>
@@ -45,6 +46,7 @@
   import LifeCycleVue from "./components/Advanced/LifeCycle.vue" // + 配合生命周期的代码
   import Layout from "./components/Advanced/Layout/Index.vue"  
   import DynamicCard from "./components/Advanced/DynamicCard/Index.vue" // 洗牌动画效果
+  import ProvideInject from "./components/Advanced/ProvideInject/Index.vue" // 数据跨层传递
    
   const API = defineAsyncComponent(()=> import("./components/Advanced/API/Index.vue"))
 
@@ -56,5 +58,5 @@
 </script>
 
 <style lang="less">
-html,body,#app,.frame{height: 100%;overflow: hidden;}
+html,body,#app,.frame{height: 100%;overflow: hidden;} 
 </style>
