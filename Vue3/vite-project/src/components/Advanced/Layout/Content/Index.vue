@@ -38,13 +38,27 @@
         </keep-alive> -->
         <!-- 7. transition -->
         <button @click="flagShow = !flagShow">显示/隐藏</button>
-        <!-- <transition name="fade" enter-from-class="e-from" enter-active-class="e-active" enter-to-class="e-to"> 
+        <!-- 7.1. <transition name="fade" enter-from-class="e-from" enter-active-class="e-active" enter-to-class="e-to"> 
             <div v-show="flagShow" class="content-box"></div>
         </transition> -->
-        <!-- 使用animate库 npm install animate.css -S -->
-        <transition name="fade" leave-active-class="animate__animated animate__bounce" enter-active-class="animate__animated animate__fadeIn"> 
+        <!-- 7.2. 使用animate库 npm install animate.css -S -->
+        <!-- <transition name="fade" :duration="{enter:50,leave:500}" leave-active-class="animate__animated animate__bounce" enter-active-class="animate__animated animate__fadeIn"> 
             <div v-show="flagShow" class="content-box"></div>
-        </transition> 
+        </transition>  -->
+        <!-- 7.3. gasp库， transition生命周期:进入 离开-->
+        <transition 
+            @before-enter="EnterFrom" 
+            @enter="EnterActive"
+            @after-enter="EnterTo"
+            @enter-cancelled="EnterCancelled"
+
+            @before-leave="LeaveFrom"
+            @leave="Leave"
+            @after-leave="LeaveTo"
+            @leave-cancelled="LeaveCancel"
+         >
+         <div v-show="flagShow" class="content-box"></div>
+        </transition>
     </div>
 </template>
 
@@ -71,6 +85,39 @@ const switchCom = () =>{
 
 // 7. transition
 const flagShow = ref(true) 
+const EnterFrom = (el:Element) =>{
+    console.log("进入之前")
+}
+const EnterActive = (el:Element,done:Function) =>{
+    console.log("过渡曲线")
+    setTimeout(()=>{
+        done()
+    },3000)
+}
+const EnterTo = (el:Element) =>{
+    console.log("过渡完成")
+}
+const EnterCancelled = (el:Element) =>{
+    console.log("过渡被打断")
+}
+
+// 离开阶段生命周期
+const LeaveFrom = () =>{
+    console.log("离开之前")
+}
+const Leave = (el:Element,done:Function) =>{
+    console.log("离开过度曲线")
+    setTimeout(() => {
+        done()
+    }, 5000);
+}
+const LeaveTo = () =>{
+    console.log("离开完成") 
+}
+const LeaveCancel = () =>{
+    console.log("离开过度曲线被打断")
+}
+
 </script> 
 <style lang="less">
 .content{flex:1;margin:20px; overflow:auto;
@@ -78,7 +125,7 @@ const flagShow = ref(true)
     &-loading{position:absolute;top:10px;right:10px;background:blue;} 
     &-box{background: red;width: 200px;height: 200px;}
     
-    // .e-from{width: 0;height: 0;transform: rotate(-360deg);}
+    // 1. .e-from{width: 0;height: 0;transform: rotate(-360deg);}
     // .e-active{transition: all .5s ease-in-out;}
     // .ec-to{width: 200px;height: 200px;}
 
