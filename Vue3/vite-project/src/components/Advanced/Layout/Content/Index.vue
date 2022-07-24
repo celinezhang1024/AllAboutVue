@@ -46,12 +46,18 @@
             <div v-show="flagShow" class="content-box"></div>
         </transition>  -->
         <!-- 7.3. gasp库， transition生命周期:进入 离开-->
-        <transition 
+        <!-- <transition 
             @before-enter="EnterFrom" 
             @enter="EnterActive"  
-            @leave="Leave" 
+            @leave="Leave"  
          >
          <div v-show="flagShow" class="content-box"></div>
+        </transition> -->
+        <!-- appear 初始化的动画 -->
+        <transition
+            appear
+            appear-active-class="animate__animated animate__bounce" >
+            <div v-show="flagShow" class="content-box"></div>
         </transition>
     </div>
 </template>
@@ -100,6 +106,8 @@ const Leave = (el:Element,done:gsap.Callback) =>{
     })
 } 
 
+
+
 </script> 
 <style lang="less">
 .content{flex:1;margin:20px; overflow:auto;
@@ -114,5 +122,9 @@ const Leave = (el:Element,done:gsap.Callback) =>{
     // .fade-leave-from{width: 200px;height: 200px;transform: rotate(360deg);}
     // .fade-leave-active{transition: all .5s ease-in-out;}
     // .fade-leave-to{width: 0;height: 0;}
+
+    .from{width:0;height:0;}
+    .active{transition:all 2s ease;}
+    .to{width: 200px;height: 200px;}
 }
 </style>
