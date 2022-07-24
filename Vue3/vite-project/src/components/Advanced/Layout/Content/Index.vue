@@ -31,11 +31,16 @@
             <div class="content-loading">loading...</div>
         </teleport> -->
         <!-- 6. Login  keep-alive :include 可以指定缓存组件的名称 :exclude 不缓存-->
-        <button @click="switchCom">切换</button>
+        <!-- <button @click="switchCom">切换</button>
         <keep-alive :max="10" :include="['Login']">
             <Login v-if="flag"></Login>
             <Reg v-else></Reg> 
-        </keep-alive>
+        </keep-alive> -->
+        <!-- 7. transition -->
+        <button @click="flagShow = !flagShow">显示/隐藏</button>
+        <transition name="fade"> 
+            <div v-show="flagShow" class="content-box"></div>
+        </transition>
     </div>
 </template>
 
@@ -59,11 +64,21 @@ const switchCom = () =>{
     flag.value = !flag.value
 }
 
-
+// 7. transition
+const flagShow = ref(true) 
 </script> 
 <style lang="less">
 .content{flex:1;margin:20px; overflow:auto;
     &-item{padding:20px;border:1px solid #ccc;}
-    &-loading{position:absolute;top:10px;right:10px;background:blue;}
+    &-loading{position:absolute;top:10px;right:10px;background:blue;} 
+    &-box{background: red;width: 200px;height: 200px;}
+    
+    .fade-enter-from{width: 0;height: 0;transform: rotate(-360deg);}
+    .fade-enter-active{transition: all .5s ease-in-out;}
+    .fade-enter-to{width: 200px;height: 200px;}
+
+    .fade-leave-from{width: 200px;height: 200px;transform: rotate(360deg);}
+    .fade-leave-active{transition: all .5s ease-in-out;}
+    .fade-leave-to{width: 0;height: 0;}
 }
 </style>
