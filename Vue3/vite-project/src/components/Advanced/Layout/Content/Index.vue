@@ -48,14 +48,8 @@
         <!-- 7.3. gasp库， transition生命周期:进入 离开-->
         <transition 
             @before-enter="EnterFrom" 
-            @enter="EnterActive"
-            @after-enter="EnterTo"
-            @enter-cancelled="EnterCancelled"
-
-            @before-leave="LeaveFrom"
-            @leave="Leave"
-            @after-leave="LeaveTo"
-            @leave-cancelled="LeaveCancel"
+            @enter="EnterActive"  
+            @leave="Leave" 
          >
          <div v-show="flagShow" class="content-box"></div>
         </transition>
@@ -73,12 +67,13 @@ import Dialog from "../../Dialog/Index.vue"
 import Login from "../../Login/Index.vue"
 import Reg from "../../Register/Index.vue"
 import "animate.css"
+import gsap from 'gsap';
 
 // 4. 动态插槽，可选择上中下
 let name = ref('footer') // footer default header
 
 // 6. Login
-const flag = ref(true)
+const flag = ref(true) 
 const switchCom = () =>{
     flag.value = !flag.value
 }
@@ -86,37 +81,24 @@ const switchCom = () =>{
 // 7. transition
 const flagShow = ref(true) 
 const EnterFrom = (el:Element) =>{
-    console.log("进入之前")
+    gsap.set(el,{
+        width:0,height:0
+    })
 }
-const EnterActive = (el:Element,done:Function) =>{
-    console.log("过渡曲线")
-    setTimeout(()=>{
-        done()
-    },3000)
-}
-const EnterTo = (el:Element) =>{
-    console.log("过渡完成")
-}
-const EnterCancelled = (el:Element) =>{
-    console.log("过渡被打断")
-}
+const EnterActive = (el:Element,done:gsap.Callback) =>{
+    gsap.to(el,{
+        width:200,height:200,
+        onComplete:done
+    })
+} 
 
-// 离开阶段生命周期
-const LeaveFrom = () =>{
-    console.log("离开之前")
-}
-const Leave = (el:Element,done:Function) =>{
-    console.log("离开过度曲线")
-    setTimeout(() => {
-        done()
-    }, 5000);
-}
-const LeaveTo = () =>{
-    console.log("离开完成") 
-}
-const LeaveCancel = () =>{
-    console.log("离开过度曲线被打断")
-}
+// 离开阶段生命周期 
+const Leave = (el:Element,done:gsap.Callback) =>{
+    gsap.to(el,{
+        width:0,height:0,
+        onComplete:done
+    })
+} 
 
 </script> 
 <style lang="less">
