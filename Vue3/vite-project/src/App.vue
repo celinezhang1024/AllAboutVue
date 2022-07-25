@@ -36,8 +36,8 @@
     <!-- <Directive3/> -->
     <!-- <HooksReset/> -->
     <!-- <Plugin/> -->
-    <!-- <ElementPlus/> -->
-    <Antd />
+    <ElementPlus/>
+    <!-- <Antd /> -->
   </div>
 </template>
 
