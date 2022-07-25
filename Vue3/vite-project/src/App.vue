@@ -36,8 +36,10 @@
     <!-- <Directive3/> -->
     <!-- <HooksReset/> -->
     <!-- <Plugin/> -->
-    <ElementPlus/>
+    <!-- <ElementPlus/> -->
     <!-- <Antd /> -->
+    <!-- <Slot/> -->
+    <ModuleCss/>
   </div>
 </template>
 
@@ -69,6 +71,8 @@
   import Plugin from './components/Advanced/Loading/Main.vue'
   import ElementPlus from './components/Advanced/ElementUI/Index.vue'
   import Antd from './components/Advanced/AntD/Index.vue'
+  import Slot from './components/Advanced/Slot/Index.vue'
+  import ModuleCss from './components/Advanced/Slot/ModuleCss.vue'
    
   const API = defineAsyncComponent(()=> import("./components/Advanced/API/Index.vue"))
 
