@@ -32,7 +32,8 @@
     <!-- <Tsx /> -->
     <!-- <VModel/> -->
     <!-- <Directive/> -->
-    <Directive2/>
+    <!-- <Directive2/> -->
+    <Directive3/>
   </div>
 </template>
 
@@ -59,6 +60,7 @@
   import VModel from './components/Advanced/VModel/Index.vue'
   import Directive from './components/Advanced/Directive/Index.vue'
   import Directive2 from './components/Advanced/Directive/Index2.vue'
+  import Directive3 from './components/Advanced/Directive/Index3.vue'
    
   const API = defineAsyncComponent(()=> import("./components/Advanced/API/Index.vue"))
 
