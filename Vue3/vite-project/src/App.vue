@@ -29,7 +29,8 @@
     <!-- 发布订阅 -->
     <!-- <EventBus/> -->
     <!-- <MittC /> -->
-    <Tsx />
+    <!-- <Tsx /> -->
+    <VModel/>
   </div>
 </template>
 
@@ -53,6 +54,7 @@
   import EventBus from "./components/Advanced/EvventBus/Index.vue" // 发布订阅
   import MittC from './components/Advanced/Mitt/Index.vue'
   import Tsx from './components/Advanced/TSX/Index.vue'
+  import VModel from './components/Advanced/VModel/Index.vue'
    
   const API = defineAsyncComponent(()=> import("./components/Advanced/API/Index.vue"))
 
