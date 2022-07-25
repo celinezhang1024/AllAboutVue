@@ -30,7 +30,9 @@
     <!-- <EventBus/> -->
     <!-- <MittC /> -->
     <!-- <Tsx /> -->
-    <VModel/>
+    <!-- <VModel/> -->
+    <!-- <Directive/> -->
+    <Directive2/>
   </div>
 </template>
 
@@ -55,6 +57,8 @@
   import MittC from './components/Advanced/Mitt/Index.vue'
   import Tsx from './components/Advanced/TSX/Index.vue'
   import VModel from './components/Advanced/VModel/Index.vue'
+  import Directive from './components/Advanced/Directive/Index.vue'
+  import Directive2 from './components/Advanced/Directive/Index2.vue'
    
   const API = defineAsyncComponent(()=> import("./components/Advanced/API/Index.vue"))
 
