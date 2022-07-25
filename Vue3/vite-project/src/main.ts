@@ -4,8 +4,13 @@ import './assets/css/reset.less' // 全局导入基础样式
 import Card from "./components/Advanced/Card/Index.vue" // 1. 全局组件
 import mitt from "mitt"
 import Loading from "./components/Advanced/Loading/Index"
+
 import ElementPlus from "element-plus"
 import 'element-plus/dist/index.css'
+
+import Antd from 'ant-design-vue'
+import 'ant-design-vue/dist/antd.css'
+
 const app = createApp(App)
 
 const Mit = mitt() // 一 1. 初始化函数
@@ -44,4 +49,5 @@ app.config.globalProperties.$env = 'dev'
 
 app.use(Loading)
 app.use(ElementPlus)
+app.use(Antd)
 app.component("Card",Card).mount('#app')

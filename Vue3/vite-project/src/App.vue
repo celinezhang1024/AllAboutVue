@@ -36,7 +36,8 @@
     <!-- <Directive3/> -->
     <!-- <HooksReset/> -->
     <!-- <Plugin/> -->
-    <ElementPlus/>
+    <!-- <ElementPlus/> -->
+    <Antd />
   </div>
 </template>
 
@@ -67,6 +68,7 @@
   import HooksReset from './components/Advanced/HooksReset/Index.vue'
   import Plugin from './components/Advanced/Loading/Main.vue'
   import ElementPlus from './components/Advanced/ElementUI/Index.vue'
+  import Antd from './components/Advanced/AntD/Index.vue'
    
   const API = defineAsyncComponent(()=> import("./components/Advanced/API/Index.vue"))
 
