@@ -35,7 +35,8 @@
     <!-- <Directive2/> -->
     <!-- <Directive3/> -->
     <!-- <HooksReset/> -->
-    <Plugin/>
+    <!-- <Plugin/> -->
+    <ElementPlus/>
   </div>
 </template>
 
@@ -65,6 +66,7 @@
   import Directive3 from './components/Advanced/Directive/Index3.vue'
   import HooksReset from './components/Advanced/HooksReset/Index.vue'
   import Plugin from './components/Advanced/Loading/Main.vue'
+  import ElementPlus from './components/Advanced/ElementUI/Index.vue'
    
   const API = defineAsyncComponent(()=> import("./components/Advanced/API/Index.vue"))
 

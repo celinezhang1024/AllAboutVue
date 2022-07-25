@@ -12,6 +12,7 @@
     "@vitejs/plugin-vue-jsx": "^2.0.0",
     "@vueuse/core": "^8.9.4",
     "animate.css": "^4.1.1",
+    "element-plus": "^2.2.10",
     "gsap": "^3.10.4",
     "lodash": "^4.17.21",
     "mitt": "^3.0.0",
