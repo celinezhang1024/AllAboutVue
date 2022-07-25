@@ -33,7 +33,8 @@
     <!-- <VModel/> -->
     <!-- <Directive/> -->
     <!-- <Directive2/> -->
-    <Directive3/>
+    <!-- <Directive3/> -->
+    <HooksReset/>
   </div>
 </template>
 
@@ -61,6 +62,7 @@
   import Directive from './components/Advanced/Directive/Index.vue'
   import Directive2 from './components/Advanced/Directive/Index2.vue'
   import Directive3 from './components/Advanced/Directive/Index3.vue'
+  import HooksReset from './components/Advanced/HooksReset/Index.vue'
    
   const API = defineAsyncComponent(()=> import("./components/Advanced/API/Index.vue"))
 
