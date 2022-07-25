@@ -2,7 +2,10 @@
   <div >
     <img id="img" width="300" height="300" src="../../../assets/vue.svg"/>
     <!-- <A a="456" title="123"></A> -->
-    {{x}} {{y}}
+    {{x}} {{y}} <br />
+    使用自定义全局函数 
+    {{$filters.format('Celine')}} <br />
+    {{$env}}
   </div>
 </template>
  
