@@ -11,6 +11,8 @@ import 'element-plus/dist/index.css'
 import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 
+import 'uno.css'
+
 const app = createApp(App)
 
 const Mit = mitt() // 一 1. 初始化函数

@@ -17,9 +17,11 @@
     "gsap": "^3.10.4",
     "lodash": "^4.17.21",
     "mitt": "^3.0.0",
+    "unocss": "^0.44.7",
     "vue": "^3.2.37"
   },
   "devDependencies": {
+    "@iconify-json/ic": "^1.1.7",
     "@types/lodash": "^4.14.182",
     "@vitejs/plugin-vue": "^3.0.0",
     "less": "^4.1.3",
