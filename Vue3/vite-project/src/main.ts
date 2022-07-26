@@ -13,8 +13,10 @@ import 'ant-design-vue/dist/antd.css'
 
 import 'uno.css'
 
-const app = createApp(App)
+import {createPinia} from 'pinia'
 
+const app = createApp(App)
+ 
 const Mit = mitt() // 一 1. 初始化函数
 declare module 'vue' { // 一 2. 需要全局的declare module 声明ts
     export interface ComponentCustomProperties{
@@ -49,7 +51,10 @@ app.config.globalProperties.$filters = {
 // 自定义常量
 app.config.globalProperties.$env = 'dev'
 
+const store = createPinia() // 注册Pinia
+
 app.use(Loading)
 app.use(ElementPlus)
 app.use(Antd)
+app.use(store)
 app.component("Card",Card).mount('#app')

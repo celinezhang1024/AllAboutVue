@@ -42,7 +42,8 @@
     <!-- <Slot/> -->
     <!-- <NextTick/> -->
     <!-- <UnoCss/> -->
-    <hFn/>
+    <!-- <hFn/> -->
+    <Pinia/>
   </div>
 </template>
 
@@ -79,6 +80,7 @@
   import NextTick from './components/Advanced/NextTick/Index.vue'
   import UnoCss from './components/Advanced/unoCss/Index.vue'
   import hFn from './components/Advanced/h/Index.vue'
+  import Pinia from './components/Advanced/Pinia/Index.vue'
    
   const API = defineAsyncComponent(()=> import("./components/Advanced/API/Index.vue"))
 
