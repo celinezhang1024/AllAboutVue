@@ -41,7 +41,8 @@
     <!-- <Antd /> -->
     <!-- <Slot/> -->
     <!-- <NextTick/> -->
-    <UnoCss/>
+    <!-- <UnoCss/> -->
+    <hFn/>
   </div>
 </template>
 
@@ -77,6 +78,7 @@
   import Slot from './components/Advanced/Slot/Index.vue'
   import NextTick from './components/Advanced/NextTick/Index.vue'
   import UnoCss from './components/Advanced/unoCss/Index.vue'
+  import hFn from './components/Advanced/h/Index.vue'
    
   const API = defineAsyncComponent(()=> import("./components/Advanced/API/Index.vue"))
 
