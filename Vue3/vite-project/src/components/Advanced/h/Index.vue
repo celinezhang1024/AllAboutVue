@@ -2,6 +2,7 @@
 <template>
    <div >
        <Btn @on-click="getBtn" text="Cenline">
+         <template #default >123</template>
        </Btn>
    </div>
 </template>
@@ -22,7 +23,7 @@ const Btn = (props:Props, ctx:any)=>{
         onClick:()=>{
             ctx.emit('on-click','我是按钮') // emit往外部派发事件
         }
-    },props.text)
+    },ctx.slots.default())
 }
 
 const getBtn =(str:string)=>{
