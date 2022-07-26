@@ -14,6 +14,8 @@ export const useTestStore = defineStore(Names.TEST,{
     },
     // methods 可以做同步 异步，提交state
     actions:{
-
+        setCurrent(num:number){
+            this.current = num
+        }
     }
 })
