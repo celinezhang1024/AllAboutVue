@@ -9,8 +9,8 @@ export default {
     console.log(vnode)
     console.log(vnode.component?.exposed);
     app.config.globalProperties.$loading = {
-      show:vnode.component?.exposed.show,
-      hide:vnode.component?.exposed.hide
+      show:vnode?.component?.exposed?.show,
+      hide:vnode?.component?.exposed?.hide
     } 
     
     // show:vnode.component?.exposed.show()

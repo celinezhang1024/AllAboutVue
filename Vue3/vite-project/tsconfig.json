@@ -18,7 +18,8 @@
     "skipLibCheck": true,
     "vueCompilerOptions": {
       "experimentalDisableTemplateSupport": true //去掉volar下el标签红色波浪线问题
-    }
+    },
+    "types":["element-plus/global"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "exclude": ["node_modules"],
