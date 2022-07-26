@@ -36,11 +36,11 @@
     <!-- <Directive3/> -->
     <!-- <HooksReset/> -->
     <!-- <Plugin/> -->
-    <NextTick/>
+    <!-- <ModuleCss/> -->
     <!-- <ElementPlus/> -->
     <!-- <Antd /> -->
     <!-- <Slot/> -->
-    <ModuleCss/>
+    <NextTick/>
   </div>
 </template>
 
@@ -70,14 +70,11 @@
   import Directive3 from './components/Advanced/Directive/Index3.vue'
   import HooksReset from './components/Advanced/HooksReset/Index.vue'
   import Plugin from './components/Advanced/Loading/Main.vue'
-<<<<<<< HEAD
-  import NextTick from './components/Advanced/NextTick/Index.vue'
-=======
+  import ModuleCss from './components/Advanced/Slot/ModuleCss.vue'
   import ElementPlus from './components/Advanced/ElementUI/Index.vue'
   import Antd from './components/Advanced/AntD/Index.vue'
   import Slot from './components/Advanced/Slot/Index.vue'
-  import ModuleCss from './components/Advanced/Slot/ModuleCss.vue'
->>>>>>> bb3585e39d2dfd6a01f2a649e396854275f07d4c
+  import NextTick from './components/Advanced/NextTick/Index.vue'
    
   const API = defineAsyncComponent(()=> import("./components/Advanced/API/Index.vue"))
 
