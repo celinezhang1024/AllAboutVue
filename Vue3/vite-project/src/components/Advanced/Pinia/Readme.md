@@ -6,6 +6,9 @@
 1. 无需手动添加store，自动添加。
 1. 支持vue2/3
 
+缺点：
+页面刷新，值会丢失
+
 vuex 
 1. dispach提交action，
 2. action commit 再提交mutation，
