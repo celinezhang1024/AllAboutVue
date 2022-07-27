@@ -52,13 +52,36 @@ app.config.globalProperties.$filters = {
 app.config.globalProperties.$env = 'dev'
 
 const store = createPinia() // 注册Pinia
-const piniaPlugin = (context:PiniaPluginContext) =>{
-    console.log('context',context); 
+const __piniaKey:string = '-Celine-'
+type Options = {
+    key?:string
+}
+const setStorage = (key:string,value:any) =>{
+    localStorage.setItem(key,JSON.stringify(value))
+}
+const getStorage = (key:string) =>{
+    return localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key) as string) : {}
+}
+const piniaPlugin = (options:Options)=>{
+    return (context:PiniaPluginContext) => {
+        const {store} = context; 
+        store.$subscribe(()=>{ 
+            const key = `${options?.key ?? __piniaKey}-${store.$id}`;
+            const data = getStorage(key) 
+            setStorage(key,toRaw(store.$state))
+            return {
+                ...data
+            }
+        })
+        console.log(store,'store')
+    }
 }
 
 app.use(Loading)
 app.use(ElementPlus)
 app.use(Antd)
+store.use(piniaPlugin({
+    key:'pinia'
+})) // 这里不要写错了 ！
 app.use(store)
-app.use(piniaPlugin)
 app.component("Card",Card).mount('#app')

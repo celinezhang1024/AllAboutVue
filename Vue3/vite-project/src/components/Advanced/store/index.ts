@@ -54,3 +54,16 @@ export const useTestStore = defineStore(Names.TEST,{
         }
     }
 })
+
+export const useStore = defineStore(Names.BASE,{
+    state:()=> {
+        return {
+            baseCurrent:1
+        }
+    },
+    actions:{ 
+        addBase(){
+            this.baseCurrent ++;
+        }
+    }
+})
