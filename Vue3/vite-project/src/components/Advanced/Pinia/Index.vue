@@ -49,7 +49,7 @@ const {current:cur,name:nam} = storeToRefs(Test)
 const change = ()=>{
     // Test.current++
     // ref包裹的值 cur.value ++
-    Test.setUser('123')
+    Test.setUser()
 }
 
 const reset = ()=>{ 
@@ -59,8 +59,7 @@ const reset = ()=>{
 // 三、观察者
 Test.$subscribe((args,state) =>{ // 修改state时触发
     // args callback
-    console.log('修改了state',state);
-    
+    console.log('修改了state',state); 
 },{
     detached:true,
     deep:true,

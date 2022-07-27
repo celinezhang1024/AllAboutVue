@@ -43,7 +43,8 @@
     <!-- <NextTick/> -->
     <!-- <UnoCss/> -->
     <!-- <hFn/> -->
-    <Pinia/>
+    <!-- <Pinia/> -->
+    <PiniaPlugin/>
   </div>
 </template>
 
@@ -81,6 +82,7 @@
   import UnoCss from './components/Advanced/unoCss/Index.vue'
   import hFn from './components/Advanced/h/Index.vue'
   import Pinia from './components/Advanced/Pinia/Index.vue'
+  import PiniaPlugin from './components/Advanced/Pinia/Plugin.vue'
    
   const API = defineAsyncComponent(()=> import("./components/Advanced/API/Index.vue"))
 

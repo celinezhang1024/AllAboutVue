@@ -13,7 +13,7 @@ import 'ant-design-vue/dist/antd.css'
 
 import 'uno.css'
 
-import {createPinia} from 'pinia'
+import {createPinia, PiniaPluginContext} from 'pinia' 
 
 const app = createApp(App)
  
@@ -52,9 +52,13 @@ app.config.globalProperties.$filters = {
 app.config.globalProperties.$env = 'dev'
 
 const store = createPinia() // 注册Pinia
+const piniaPlugin = (context:PiniaPluginContext) =>{
+    console.log('context',context); 
+}
 
 app.use(Loading)
 app.use(ElementPlus)
 app.use(Antd)
 app.use(store)
+app.use(piniaPlugin)
 app.component("Card",Card).mount('#app')
