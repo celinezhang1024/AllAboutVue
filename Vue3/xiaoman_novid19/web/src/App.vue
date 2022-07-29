@@ -1,4 +1,4 @@
-<template>
+<template> 
   <div :style="{ background: `url(${bg})` }" class="box">
     <div style="color:white" class="box-left">
       <div class="box-left-card">
@@ -61,6 +61,7 @@
     </div>
   </div>
 </template>
+
   
 <script setup lang='ts'>
 import bg from './assets/1.jpg'
