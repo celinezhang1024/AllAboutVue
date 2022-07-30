@@ -35,6 +35,7 @@
           </section>
         </div>
         <div class="box-left-pie"></div>
+        <div class="box-left-line"></div>
        </div>
        <div id="china" class="box-center">
        </div>
@@ -78,6 +79,7 @@ onMounted(async ()=>{
   await store.getList();  
   initCharts();
   initPie();
+  initLine();
 })
 
 const initCharts = () =>{
@@ -238,6 +240,44 @@ const initPie = () =>{
   ]})
 }
 
+const initLine = () =>{
+   const charts = echarts.init(document.querySelector('.box-left-line') as HTMLElement)
+    
+   charts.setOption({
+      backgroundColor: '#223651',
+      tooltip:{
+        trigger:'axis'
+      },
+      xAxis: {
+        type: 'category',
+        data: store.cityDetail.map(v=>v.city),
+        axisLine:{
+          lineStyle:{
+            color:'#ffffff'
+          }
+        }
+      }, 
+      yAxis: {
+        type: 'value',
+        axisLine:{
+          lineStyle:{
+            color:'#ffffff'
+          }
+        }
+      },
+      label:{
+        show:true
+      },
+      series: [
+        {
+          data: store.cityDetail.map(v=>v.nowConfirm),
+          type: 'line',
+          smooth: true
+        }
+      ]
+   })
+}
+
 </script>
 
 <style  lang='less'>
@@ -263,9 +303,8 @@ html,body,#app{height:100%;width: 100%;background:#fff;overflow:hidden;}
         }
       }
     }
-    &-pie{width:100%;height:200px;margin-top:20px;}
-  
-  
+    &-pie{width:100%;height:300px;margin-top:20px;}
+    &-line{width:100%;height:350px;margin-top:20px;} 
   
   }
   &-center{flex:1;}
