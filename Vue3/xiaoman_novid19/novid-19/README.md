@@ -13,3 +13,5 @@ npm install echarts -S
 
 json2ts 帮助定义json类型
 contrl + alt + v 生成
+
+npm install animate.css -S
