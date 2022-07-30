@@ -10,3 +10,6 @@ yarn
 npm install less less-loader -D
 npm install axios -S
 npm install echarts -S
+
+json2ts 帮助定义json类型
+contrl + alt + v 生成

@@ -14,19 +14,19 @@ import { useStore } from './stores';
 import { onMounted } from 'vue';
 import * as echarts from 'echarts' // echats 5
 import './assets/china'
+import { geoCoordMap } from './assets/geoMap';
 
 const store = useStore()
-store.getList();
-onMounted(()=>{
-  const data = [
-    {
-      name: "内蒙古",
-      itemStyle: {
-        areaColor: "#56b1da",
-      },
-      value:[110.3467, 41.4899]
-    },
-  ];
+
+onMounted(async ()=>{
+  await store.getList();
+  const city = store.list.diseaseh5Shelf.areaTree[0].children;
+  const data = city.map(v=>{ 
+    return {
+      name:v.name,
+      value:geoCoordMap[v.name].concat(v.total.nowConfirm)
+    }
+  }) 
  const charts = echarts.init(document.querySelector('#china') as HTMLElement)
  charts.setOption({
     geo: {
@@ -84,7 +84,7 @@ onMounted(()=>{
     series: [
       {
         type: "map",
-        selectedMode: "multiple",
+        // selectedMode: "multiple", // 多选
         map: "china",
         aspectScale: 0.8,
         layoutCenter: ["50%", "50%"], //地图位置
@@ -117,17 +117,18 @@ onMounted(()=>{
       },
       { 
           type: 'scatter',
-          coordinateSystem: 'geo',
-        //   symbol: 'image://http://ssq168.shupf.cn/data/biaoji.png',
-          // symbolSize: [30,120],
-          // symbolOffset:[0, '-40%'] ,
+          coordinateSystem: 'geo', 
           symbol: 'pin',
           symbolSize: [45,45],
           label: { 
             show: true, 
+            color:"#FFF",
+            formatter(value:any){ 
+              return value.data.value[2]
+            }
           },
           itemStyle: { 
-            color: '#D8BC37', //标志颜色 
+            color: '#1E90FF', //标志颜色 
           },
           data: data
       },
