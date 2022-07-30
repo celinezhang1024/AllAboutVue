@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { getApiList } from '@/server'
-import type { RootObject,Children,ChinaTotal,ChinaAdd } from './type'
+import type { RootObject,Children,ChinaTotal,ChinaAdd,StatisGradeCityDetail } from './type'
 
 export const useStore = defineStore({
   id: 'counter',
@@ -8,7 +8,8 @@ export const useStore = defineStore({
     list: <RootObject>{},
     item: <Children[]>[],
     chinaAdd: <ChinaAdd>{},
-    chinaTotal:<ChinaTotal>{}
+    chinaTotal:<ChinaTotal>{},
+    cityDetail:<StatisGradeCityDetail[]>[]
   }),
   actions:{
     async getList(){
@@ -16,6 +17,8 @@ export const useStore = defineStore({
       this.list = result
       this.chinaAdd = this.list.diseaseh5Shelf.chinaAdd
       this.chinaTotal = this.list.diseaseh5Shelf.chinaTotal
+      this.cityDetail = this.list.statisGradeCityDetail.slice(0,10)
+
     }
   } 
 })

@@ -2,39 +2,39 @@
 <template>
    <div :style="{backgroundImage:`url(${bg})`}" class="box">
        <div style="color:white" class="box-left">
-       <div class="box-left-card">
-        <section>
-          <div>较上日+ {{ store.chinaAdd.localConfirmH5 }}</div>
-          <div>{{store.chinaTotal.localConfirm}}</div>
-          <div>本土现有确诊</div>
-        </section>
-        <section>
-          <div>较上日+ {{ store.chinaAdd.nowConfirm }}</div>
-          <div>{{store.chinaTotal.nowConfirm}}</div>
-          <div>现有确诊</div>
-        </section>
-        <section>
-          <div>较上日+ {{ store.chinaAdd.confirm }}</div>
-          <div>{{store.chinaTotal.confirm}}</div>
-          <div>累计确诊</div>
-        </section>
-        <section>
-          <div>较上日+ {{ store.chinaAdd.noInfect }}</div>
-          <div>{{store.chinaTotal.noInfect}}</div>
-          <div>无症状感染者</div>
-        </section>
-        <section>
-          <div>较上日+ {{ store.chinaAdd.importedCase }}</div>
-          <div>{{store.chinaTotal.importedCase}}</div>
-          <div>境外输入</div>
-        </section>
-        <section>
-          <div>较上日+ {{ store.chinaAdd.dead }}</div>
-          <div>{{store.chinaTotal.dead}}</div>
-          <div>累计死亡</div>
-        </section>
-       </div>
-        
+        <div class="box-left-card">
+          <section>
+            <div>较上日+ {{ store.chinaAdd.localConfirmH5 }}</div>
+            <div>{{store.chinaTotal.localConfirm}}</div>
+            <div>本土现有确诊</div>
+          </section>
+          <section>
+            <div>较上日+ {{ store.chinaAdd.nowConfirm }}</div>
+            <div>{{store.chinaTotal.nowConfirm}}</div>
+            <div>现有确诊</div>
+          </section>
+          <section>
+            <div>较上日+ {{ store.chinaAdd.confirm }}</div>
+            <div>{{store.chinaTotal.confirm}}</div>
+            <div>累计确诊</div>
+          </section>
+          <section>
+            <div>较上日+ {{ store.chinaAdd.noInfect }}</div>
+            <div>{{store.chinaTotal.noInfect}}</div>
+            <div>无症状感染者</div>
+          </section>
+          <section>
+            <div>较上日+ {{ store.chinaAdd.importedCase }}</div>
+            <div>{{store.chinaTotal.importedCase}}</div>
+            <div>境外输入</div>
+          </section>
+          <section>
+            <div>较上日+ {{ store.chinaAdd.dead }}</div>
+            <div>{{store.chinaTotal.dead}}</div>
+            <div>累计死亡</div>
+          </section>
+        </div>
+        <div class="box-left-pie"></div>
        </div>
        <div id="china" class="box-center">
        </div>
@@ -77,6 +77,7 @@ const store = useStore()
 onMounted(async ()=>{
   await store.getList();  
   initCharts();
+  initPie();
 })
 
 const initCharts = () =>{
@@ -200,6 +201,43 @@ const initCharts = () =>{
  })
 }
 
+const initPie = () =>{
+   const charts = echarts.init(document.querySelector('.box-left-pie') as HTMLElement)
+    
+   charts.setOption({
+    backgroundColor: '#223651',
+    tooltip: {
+      trigger: 'item'
+    }, 
+    series: [
+      { 
+        type: 'pie',
+        radius: ['40%', '70%'], 
+        itemStyle: {
+          borderRadius: 4,
+          borderColor: '#fff',
+          borderWidth: 2
+        },
+        label: {
+          show: true
+        },
+        emphasis: {
+          label: {
+            show: true,
+            fontSize: '14',
+            fontWeight: 'bold'
+          }
+        }, 
+        data: store.cityDetail.map(v=>{
+                return {
+                  name:v.city,
+                  value:v.nowConfirm
+                }
+              })
+      }
+  ]})
+}
+
 </script>
 
 <style  lang='less'>
@@ -225,6 +263,10 @@ html,body,#app{height:100%;width: 100%;background:#fff;overflow:hidden;}
         }
       }
     }
+    &-pie{width:100%;height:200px;margin-top:20px;}
+  
+  
+  
   }
   &-center{flex:1;}
   &-right{width:200px; }
