@@ -36,7 +36,7 @@
   --section-gap: 160px;
 }
 
-
+/* 这里可以动态选择颜色模式 light */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: var(--vt-c-black);
