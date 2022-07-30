@@ -1,7 +1,41 @@
 <!--  -->
 <template>
    <div :style="{backgroundImage:`url(${bg})`}" class="box">
-       <div class="box-left"></div>
+       <div style="color:white" class="box-left">
+       <div class="box-left-card">
+        <section>
+          <div>较上日+ {{ store.chinaAdd.localConfirmH5 }}</div>
+          <div>{{store.chinaTotal.localConfirm}}</div>
+          <div>本土现有确诊</div>
+        </section>
+        <section>
+          <div>较上日+ {{ store.chinaAdd.nowConfirm }}</div>
+          <div>{{store.chinaTotal.nowConfirm}}</div>
+          <div>现有确诊</div>
+        </section>
+        <section>
+          <div>较上日+ {{ store.chinaAdd.confirm }}</div>
+          <div>{{store.chinaTotal.confirm}}</div>
+          <div>累计确诊</div>
+        </section>
+        <section>
+          <div>较上日+ {{ store.chinaAdd.noInfect }}</div>
+          <div>{{store.chinaTotal.noInfect}}</div>
+          <div>无症状感染者</div>
+        </section>
+        <section>
+          <div>较上日+ {{ store.chinaAdd.importedCase }}</div>
+          <div>{{store.chinaTotal.importedCase}}</div>
+          <div>境外输入</div>
+        </section>
+        <section>
+          <div>较上日+ {{ store.chinaAdd.dead }}</div>
+          <div>{{store.chinaTotal.dead}}</div>
+          <div>累计死亡</div>
+        </section>
+       </div>
+        
+       </div>
        <div id="china" class="box-center">
        </div>
        <div class="box-right" style="color:white">
@@ -170,9 +204,28 @@ const initCharts = () =>{
 
 <style  lang='less'>
 *{padding:0;margin:0;}
+@itemColor:#41b0db;
+@itemBg:#223651;
+@itemBorder:#212028;
 html,body,#app{height:100%;width: 100%;background:#fff;overflow:hidden;}
 .box{height:100%;display:flex; background-size: cover;
-  &-left{width:200px; }
+  &-left{width:330px; 
+    &-card{display:grid;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: auto auto;
+      section{
+        background: @itemBg;
+        border: 1px solid @itemBorder; 
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        div:nth-child(2){
+          color:@itemColor;
+          padding:2px 0;
+        }
+      }
+    }
+  }
   &-center{flex:1;}
   &-right{width:200px; }
 }
