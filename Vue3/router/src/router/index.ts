@@ -2,14 +2,20 @@ import {createRouter,createWebHistory, createWebHashHistory, RouteRecordRaw} fro
 
 const routes:Array<RouteRecordRaw> = [
     {
-        path:'/',
-        name:'Login',
-        component:()=> import('./../components/login.vue')
-    },
-    {
-        path:'/reg/:id',
-        name:'Reg',
-        component:()=> import('./../components/reg.vue')
+        path:'/user', 
+        component:()=> import('./../components/footer.vue'),
+        children:[
+            {
+                path:'',
+                name:'Login',
+                component:()=> import('./../components/login.vue')
+            },
+            {
+                path:'reg',
+                name:'Reg',
+                component:()=> import('./../components/reg.vue')
+            }
+        ]
     }
 ]
 
