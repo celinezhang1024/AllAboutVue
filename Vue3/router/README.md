@@ -24,3 +24,8 @@ replace 不留跳转记录
 
 json to ts
 ctrl+shift+alt+s
+
+路由传参
+1. query在url
+2. params在内存，返回会丢失
+3. 动态路由参数  params:{id:item.id}

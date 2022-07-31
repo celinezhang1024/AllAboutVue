@@ -7,7 +7,7 @@ const routes:Array<RouteRecordRaw> = [
         component:()=> import('./../components/login.vue')
     },
     {
-        path:'/reg',
+        path:'/reg/:id',
         name:'Reg',
         component:()=> import('./../components/reg.vue')
     }

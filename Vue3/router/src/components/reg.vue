@@ -4,9 +4,9 @@
         详情页面
         <button @click="back">返回</button>
         <div>
-            <div class="detailName">品牌：{{ route.query.name }}</div>
-            <div class="detailName">价格：{{ route.query.price }}</div>
-            <div class="detailName">ID：{{ route.query.id }}</div>
+            <div class="detailName">品牌：{{ item?.name }}</div>
+            <div class="detailName">价格：{{ item?.price }}</div>
+            <div class="detailName">ID：{{ item?.id }}</div>
         </div>
    </div>
 </template>
@@ -20,6 +20,7 @@ const router = useRouter()
 const back = ()=>{
     router.back()
 }
+const item =  data.find(v=>v.id === Number(route.params.id))
 </script>
 
 <style scoped lang='less'>

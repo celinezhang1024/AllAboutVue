@@ -31,10 +31,12 @@ type Item = {
   price: number;
   id: number;
 }
+// query放在url
+// params放在内存里面的
 const toDetail = (item:Item)=>{
     router.push({
-        path:'/reg',
-        query:item
+        name:'Reg',
+        params:{id:item.id}
     })
 }
 </script>
