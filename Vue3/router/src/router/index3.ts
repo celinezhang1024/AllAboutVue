@@ -10,6 +10,21 @@ declare module 'vue-router'{
 
 const router = createRouter({
     history:createWebHistory(import.meta.env.BASE_URL),
+    scrollBehavior:(to,from,savePosition) =>{
+        console.log(savePosition)
+        // if(savePosition){
+        //     return savePosition
+        // }else{
+            // return {top:1800}
+        // }
+        return new Promise((r)=>{
+            setTimeout(() => {
+                r({
+                    top:99999999
+                })
+            }, 2000);
+        })
+    },
     routes:[
         {
             path:'/',

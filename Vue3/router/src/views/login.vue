@@ -1,6 +1,7 @@
 <!-- login -->
 <template>
   <div class="login"> 
+    <div class="scrollV">滚动行为</div>
     <el-form ref="form" :rules="rules" :model="formInline" class="demo-form-inline">
       <el-form-item prop="user" label="账号">
         <el-input v-model="formInline.user" placeholder="请输入账号" />
@@ -72,6 +73,7 @@ const onSubmit = () => {
 <style scoped lang="less">
 .login {
   width: 400px;
-  height: 200px;
+  height: 2200px;
+  .scrollV{height:1800px;}
 }
 </style>
