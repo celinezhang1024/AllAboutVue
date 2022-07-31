@@ -4,6 +4,20 @@ const routes:Array<RouteRecordRaw>=[
     {
         path:"/",
         component:()=>import('./../components/root.vue'),
+        // 重定向：1path， 2{}，3callback
+        // redirect:'/user1',
+        // redirect:{path:"user1"},
+        // redirect:to=>{
+        //     // return '/user1'
+        //     return { 
+        //         path:'/user1',
+        //         query:{
+        //             name:'Celine'
+        //         }
+        //     }
+        // },
+        // 别名：可以多个或1个
+        alias:['/root','/root1','/root2'],
         children:[
             {
                 path:'/user1',
