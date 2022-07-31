@@ -4,8 +4,8 @@
        <h1>Celine 女王</h1>
        <div>
          <!-- 1. 硬编码 -->
-          <!--<router-link to="/">Login</router-link>
-          <router-link to="/reg">Regist</router-link> -->
+          <!-- <router-link replace to="/">Login</router-link>
+          <router-link replace to="/reg">Regist</router-link> -->
           <!-- 2. name -->
           <!-- <router-link :to="{name:'Login'}">Login</router-link>
           <router-link :to="{name:'Reg'}">Regist</router-link> -->
@@ -15,6 +15,8 @@
           <!-- 4.编程式跳转 -->
           <button @click="toPage('Login')">Login /</button>
           <button @click="toPage('Reg')">Reg /reg</button>
+          <button @click="next()">next</button>
+          <button @click="prev()">prev</button>
        </div>
        <hr>
        <router-view></router-view>
@@ -34,7 +36,17 @@ const toPage = (url:string)=>{
   // 4.3 命名式的
   // 参数要是name
   router.push({name:url})
+  // router.replace({name:url})
 }
+// js逻辑判断前进后退
+const next = ()=>{
+  router.go(1)
+}
+const prev = ()=>{
+  // router.go(-1)
+  router.back()
+}
+
 </script>
 
 <style scoped lang='less'>
