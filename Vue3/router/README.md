@@ -29,3 +29,6 @@ ctrl+shift+alt+s
 1. query在url
 2. params在内存，返回会丢失
 3. 动态路由参数  params:{id:item.id}
+
+
+npm install element-plus -S
