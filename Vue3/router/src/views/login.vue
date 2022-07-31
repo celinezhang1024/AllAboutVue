@@ -1,6 +1,7 @@
 <!-- login -->
 <template>
   <div class="login">
+    <LoadingBar></LoadingBar>
     <el-form ref="form" :rules="rules" :model="formInline" class="demo-form-inline">
       <el-form-item prop="user" label="账号">
         <el-input v-model="formInline.user" placeholder="请输入账号" />
@@ -22,7 +23,9 @@
 <script setup lang="ts">
 import { reactive,ref } from "vue";
 import { useRouter } from "vue-router";
-import { FormItemRule,FormInstance,ElMessage } from "element-plus";
+import { FormItemRule,FormInstance,ElMessage } from "element-plus" 
+import LoadingBar from "../components/loadingBar.vue";
+
 const form = ref<FormInstance>()
 const router = useRouter();
 type Form = {
