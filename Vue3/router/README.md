@@ -19,3 +19,5 @@ window.addEventListener("popstate",(e)=>{
     // 路由切换，浏览器前进后退 createWebHistory() 
     console.log(e)
 })
+
+replace 不留跳转记录
