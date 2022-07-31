@@ -37,11 +37,7 @@ const endLoading = ()=>{
     }, 1000);
     
 }
-
-onMounted(()=>{
-    startLoading();
-    endLoading();
-})
+ 
 defineExpose({
     startLoading,
     endLoading
@@ -51,7 +47,7 @@ defineExpose({
 
 <style scoped lang='less'>
 .wraps{
-    position:fixed;top:0;left:0;width: 100%;height: 4px;opacity:0.7;
+    position:fixed;top:0;left:0;width: 100%;height: 4px;opacity:0.9;
     .bar{height: inherit;width:0;background: blue;}
 }
 </style>
