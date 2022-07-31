@@ -21,3 +21,6 @@ window.addEventListener("popstate",(e)=>{
 })
 
 replace 不留跳转记录
+
+json to ts
+ctrl+shift+alt+s
