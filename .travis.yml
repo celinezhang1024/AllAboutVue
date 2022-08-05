@@ -1,0 +1,14 @@
+notifications:
+  email: 
+     - 95616085@qq.com
+
+cache:
+  directories:
+    - node_modules
+
+language: node_js
+
+node_js: stable
+
+script:
+  - yarn test
