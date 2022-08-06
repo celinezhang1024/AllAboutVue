@@ -104,7 +104,7 @@ export default class VirtualList extends Vue {
     public scrollEvent(e: any) {
         // 当前滚动位置
         const scrollTop = this.$refs.list.scrollTop;
-        debugger
+        
         // 此时的开始索引
         this.start = Math.floor(scrollTop / this.itemSize);
         // 此时的结束索引
