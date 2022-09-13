@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>循环渲染</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
+
 <body>
     <div id="Application">
         <ul>
@@ -29,7 +31,7 @@
         const App = {
             data() {
                 return {
-                    list:[
+                    list: [
                         {
                             name: "珲少",
                             num: "151xxxxxxxx"
@@ -64,6 +66,7 @@
                     this.list.reverse()
                 },
                 handle(l) {
+                    // 这个不错，可以filter数据name
                     return l.filter(obj => obj.name != "珲少")
                 }
             }
@@ -71,4 +74,5 @@
         Vue.createApp(App).mount("#Application") 
     </script>
 </body>
+
 </html>

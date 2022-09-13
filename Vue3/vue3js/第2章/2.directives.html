@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,32 +9,48 @@
     <script src="https://unpkg.com/vue@next"></script>
     <style>
         #h1 {
-            color:red;
+            color: red;
         }
+
         .h1 {
-            color:blue
+            color: blue
         }
     </style>
 </head>
+
 <body>
     <div id="Application">
+        模版指令 以v- 开头
+        <!-- 1. prop动态的指令参数，绑定class或者style -->
         <h1 v-bind:[prop]="name" v-if="show">标题</h1>
+        <!-- 2. trim指令增加修饰符 -->
         <input v-model.trim="content">
+        <!-- 3. v-bind:id="id "指令简写 :id="id" -->
+        <div :id="id">#id</div>
+        <!-- 4. v-on:click="myFn" 事件绑定，简写 @click="myFn" -->
+        <div @click="myFn">myFn</div>
     </div>
     <script>
         // 定义一个Vue组件, 名为App
         const App = {
             data() {
                 return {
-                    show:true,
-                    prop:"class",
-                    name:"h1",
-                    content:""
+                    show: true,
+                    prop: "class",
+                    name: "h1",
+                    content: "",
+                    id: 'id'
+                }
+            },
+            methods: {
+                myFn: () => {
+                    console.log("myFn")
                 }
             }
         }
         Vue.createApp(App).mount("#Application") 
     </script>
-    
+
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,11 +12,12 @@
         }
     </style>
 </head>
+
 <body>
     <div id="Application" style="text-align: center;">
-        <h1 v-once>这里是模板的内容:{{countHTML}}次点击</h1>
-        <h1 v-once>这里是模板的内容:<span v-html="countHTML"></span>次点击</h1>
-        <h1 v-bind:id="id1">这里是模板的内容:{{count + 10}}次点击</h1>
+        <h1 v-once>1. 模板插值:{{count}}次点击</h1>
+        <h1 v-once>2. HTML代码插值:<span v-html="countHTML"></span>次点击</h1>
+        <h1 v-bind:id="id1">3. 标签属性插值，插入h1:{{count + 10}}次点击</h1>
         <button v-on:click="clickButton">按钮</button>
     </div>
     <script>
@@ -24,9 +26,9 @@
             // 定义组件中的数据
             data() {
                 return {
-                    count:0,
-                    countHTML:"<span style='color:red;'>0</span>",
-                    id1:"h1"
+                    count: 0,
+                    countHTML: "<span style='color:red;'>0</span>",
+                    id1: "h1"
                 }
             },
             // 定义组件中的函数
@@ -42,4 +44,5 @@
         Vue.createApp(App).mount("#Application") 
     </script>
 </body>
+
 </html>

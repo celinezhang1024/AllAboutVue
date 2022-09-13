@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,15 +8,13 @@
     <title>待办任务列表</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
+
 <body>
     <div id="Application">
         <!-- 输入框元素，用来新建待办任务 -->
         <form @submit.prevent="addTask">
             <span>新建任务</span>
-            <input 
-            v-model="taskText"
-            placeholder="请输入任务..."
-            />
+            <input v-model="taskText" placeholder="请输入任务..." />
             <button>添加</button>
         </form>
         <!-- 有序列表，使用v-for来构建 -->
@@ -25,7 +24,7 @@
                 <button @click="remove(index)">
                     删除任务
                 </button>
-                <hr/>
+                <hr />
             </li>
         </ol>
     </div>
@@ -34,13 +33,13 @@
             data() {
                 return {
                     // 待办任务列表数据
-                    todos:[],
+                    todos: [],
                     // 当前输入的待办任务
                     taskText: ""
                 }
             },
             methods: {
-                // 添加一条待办任务
+                // 1. 添加一条待办任务
                 addTask() {
                     // 判断下输入框是否为空
                     if (this.taskText.length == 0) {
@@ -50,8 +49,9 @@
                     this.todos.push(this.taskText)
                     this.taskText = ""
                 },
-                // 删除一条待办任务
+                // 2/ 删除一条待办任务
                 remove(index) {
+                    // 这个不错
                     this.todos.splice(index, 1)
                 }
             }
@@ -59,4 +59,5 @@
         Vue.createApp(App).mount("#Application") 
     </script>
 </body>
+
 </html>

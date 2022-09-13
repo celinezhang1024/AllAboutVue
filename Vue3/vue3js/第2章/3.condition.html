@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,10 @@
     <title>条件渲染</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
+
 <body>
     <div id="Application">
+        <!-- 1. 不频繁切换用v-if -->
         <h1 v-if="show">标题</h1>
         <p v-else>如果不显示标题就显示段落</p>
         <h1 v-if="mark == 100">满分</h1>
@@ -25,6 +28,7 @@
             <p>内容</p>
         </template>
         <h1 v-if="show">v-if标题在这里</h1>
+        <!-- 2. 频繁切换用v-show -->
         <h1 v-show="show">v-show标题在这里</h1>
     </div>
     <script>
@@ -32,12 +36,13 @@
         const App = {
             data() {
                 return {
-                    show:false,
-                    mark:100
+                    show: false,
+                    mark: 100
                 }
             }
         }
         Vue.createApp(App).mount("#Application") 
     </script>
 </body>
+
 </html>
