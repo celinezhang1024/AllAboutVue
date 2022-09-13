@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,43 +9,47 @@
     <script src="https://unpkg.com/vue@next"></script>
     <style>
         .red {
-            color:red
+            color: red
         }
+
         .blue {
-            color:blue
+            color: blue
         }
+
         .font {
             font-size: 30px;
         }
     </style>
 </head>
+
 <body>
     <div id="Application">
         <div :class="[redClass, fontClass]">
-            示例文案
+            1. class的绑定
         </div>
         <div :style="{color:textColor,fontSize:textFont}">
-            示例文案
+            2. style内联样式的绑定
         </div>
     </div>
     <script>
         const App = {
             data() {
-               return {
-                    isBlue:true,
-                    isRed:false,
-                    style:{
-                        blue:true,
-                        red:false
+                return {
+                    isBlue: true,
+                    isRed: false,
+                    style: {
+                        blue: true,
+                        red: false
                     },
-                    redClass:"red",
-                    fontClass:"font",
-                    textColor:'green',
-                    textFont:'50px'
+                    redClass: "red",
+                    fontClass: "font",
+                    textColor: 'green',
+                    textFont: '50px'
                 }
             }
         }
         Vue.createApp(App).mount("#Application") 
     </script>
 </body>
+
 </html>

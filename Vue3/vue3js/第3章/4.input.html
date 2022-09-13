@@ -1,59 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>表单输入</title>
+    <title>4. 表单的双绑</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
+
 <body>
     <div id="Application">
-        <input v-model.trim="textField"/>
-        <p>文本输入框内容:{{textField}}</p>
-        <br/>
-        <textarea v-model="textarea"></textarea>
-        <p style="white-space: pre-line;">多行文本内容:{{textarea}}</p>
-        <input type="checkbox" v-model="checkbox"/>
-        <p>{{checkbox}}</p>
+        <input v-model.trim="textField" />
+        <p>4.1 文本输入框内容:{{textField}}</p>
         <br />
-        <input type="checkbox" value="足球" v-model="checkList"/>足球
-        <input type="checkbox" value="篮球" v-model="checkList"/>篮球
-        <input type="checkbox" value="排球" v-model="checkList"/>排球
-        <p>{{checkList}}</p>
+        <textarea v-model="textarea"></textarea>
+        <p style="white-space: pre-line;"> 多行文本内容:{{textarea}}</p>
+        <input type="checkbox" v-model="checkbox" />
+        <p>4.2 复选{{checkbox}}</p>
+        <br />
+
+        <input type="checkbox" value="足球" v-model="checkList" /> 足球
+        <input type="checkbox" value="篮球" v-model="checkList" /> 篮球
+        <input type="checkbox" value="排球" v-model="checkList" /> 排球
+        <p>4.3 复选列表{{checkList}}</p>
         <hr />
-        <input type="radio" value="男" v-model="sex"/>男
-        <input type="radio" value="女" v-model="sex"/>女
-        <p>{{sex}}</p>
+        <input type="radio" value="男" v-model="sex" /> 男
+        <input type="radio" value="女" v-model="sex" /> 女
+        <p>4.4 单选{{sex}}</p>
         <hr />
         <select v-model="select">
             <option>男</option>
             <option>女</option>
         </select>
-        <p>{{select}}</p>
+        <p>4.5 下拉菜单{{select}}</p>
         <hr />
         <select v-model="selectList" multiple>
             <option>足球</option>
             <option>篮球</option>
             <option>排球</option>
         </select>
-        <p>{{selectList}}</p>
+        <p>4.6 多选下拉{{selectList}}</p>
+
+
+        4.7 修饰符
+        <div>a .lazy 当用户完全输入完毕，再进行数据逻辑的处理。即：失去焦点再给textField赋值</div>
+        <input v-model.lazy="textField">
+        <p>输入内容： {{textField}}</p>
+        <div>b .trim 处理首位空格</div>
     </div>
     <script>
         const App = {
             data() {
-               return {
-                   textField:"",
-                   textarea:"",
-                   checkbox:false,
-                   checkList:[],
-                   sex:"",
-                   select:"",
-                   selectList:[]
+                return {
+                    textField: "",
+                    textarea: "",
+                    checkbox: false,
+                    checkList: [],
+                    sex: "",
+                    select: "",
+                    selectList: []
                 }
             }
         }
         Vue.createApp(App).mount("#Application") 
     </script>
 </body>
+
 </html>

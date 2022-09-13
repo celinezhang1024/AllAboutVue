@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,17 +8,19 @@
     <title>属性侦听器</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
+
 <body>
     <div id="Application">
-        <input v-model="searchText"/>
+        <input v-model="searchText" />
     </div>
     <script>
         const App = {
             data() {
                 return {
-                    searchText:""
+                    searchText: ""
                 }
             },
+            // 2. 属性的监听
             watch: {
                 searchText(oldValue, newValue) {
                     if (newValue.length > 10) {
@@ -29,4 +32,5 @@
         Vue.createApp(App).mount("#Application") 
     </script>
 </body>
+
 </html>
