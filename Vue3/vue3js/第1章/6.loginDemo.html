@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登录</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
+
 <body>
     <div id="Application" style="text-align: center;">
         <h1>{{title}}</h1>
+        <!-- v-model 双绑 -->
         <div v-if="noLogin">账号：<input v-model="userName" type="text" /></div>
         <div v-if="noLogin">密码：<input v-model="password" type="password" /></div>
-        <div v-on:click="click" style="border-radius: 30px;width: 100px; margin: 20px auto; color: white; background-color: blue;">{{buttonTitle}}</div>
+        <div v-on:click="click"
+            style="border-radius: 30px;width: 100px; margin: 20px auto; color: white; background-color: blue;">
+            {{buttonTitle}}</div>
     </div>
     <script>
         const App = {
-            data () {
+            data() {
                 return {
-                    title:"欢迎您：未登录",
-                    noLogin:true,
-                    userName:"",
-                    password:"",
-                    buttonTitle:"登录"
+                    title: "欢迎您：未登录",
+                    noLogin: true,
+                    userName: "",
+                    password: "",
+                    buttonTitle: "登录"
                 }
             },
             methods: {
@@ -58,6 +63,7 @@
         }
         Vue.createApp(App).mount("#Application")
     </script>
-    
+
 </body>
+
 </html>

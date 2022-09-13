@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <script>
         var count = 0
         function clickFunc() {
+            // 内部文本
             document.getElementById("h1").innerText = `${++count}`
+            // 显示
             document.getElementById("img").style.visibility = count % 2 == 0 ? "visible" : "hidden"
         }
     </script>
@@ -15,7 +18,7 @@
         var a = 100 // 定义变量a 其存储的值为数值100
         var b = "HelloWorld" // 定义变量b 其存储的值为字符串
         var c = {
-            name:"abc"
+            name: "abc"
         } // 定义键值对变量 c
         var d = [1, 2, 3,] // 定义列表变量d
         var e = false // 定义布尔变量e
@@ -63,13 +66,14 @@
             v -= 1
             console.log(v)
         }
-        for(v = 0 ; v < 10; v ++) {
+        for (v = 0; v < 10; v++) {
             console.log(v)
         }
     </script>
 </head>
+
 <body>
-    <div style="text-align: center;">    
+    <div style="text-align: center;">
         <h1 id="h1" style="font-size: 40px;">数值:0</h1>
         <div id="img" style="visibility: visible;">
             <img src="demo.png" width="200px">
@@ -77,4 +81,5 @@
         <button style="font-size: 30px; background-color: burlywood;" onclick="clickFunc()">点击</button>
     </div>
 </body>
+
 </html>
