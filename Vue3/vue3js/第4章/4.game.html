@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>圆球游戏</title>
+    <title>2. 圆球游戏</title>
     <script src="https://unpkg.com/vue@next"></script>
     <style>
         body {
             margin: 0;
             padding: 0;
         }
+
         .container {
             position: relative;
             margin: 0 auto;
@@ -18,17 +20,19 @@
             height: 440px;
             background-color: blanchedalmond;
         }
+
         .ball {
-            position:absolute;
+            position: absolute;
             width: 30px;
             height: 30px;
-            left:0px;
-            top:0px;
-            background-color:orange;
+            left: 0px;
+            top: 0px;
+            background-color: orange;
             border-radius: 30px;
         }
+
         .board {
-            position:absolute;
+            position: absolute;
             left: 0;
             bottom: 0;
             height: 10px;
@@ -38,6 +42,7 @@
         }
     </style>
 </head>
+
 <body>
     <div id="Application">
         <!-- 游戏区域 -->
@@ -53,18 +58,18 @@
     <script>
         const App = {
             data() {
-               return {
+                return {
                     // 控制挡板位置
-                    boardX:0,
+                    boardX: 0,
                     // 控制弹球位置
-                    ballX:0,
-                    ballY:0,
+                    ballX: 0,
+                    ballY: 0,
                     // 控制弹球移动速度
-                    rateX:0.1,
-                    rateY:0.1,
+                    rateX: 0.1,
+                    rateY: 0.1,
                     // 控制结束游戏提示的展示
-                    fail:false
-               }
+                    fail: false
+                }
             },
             // 组件生命周期函数，组件加载时会调用
             mounted() {
@@ -74,9 +79,9 @@
                 this.rateX = (Math.random() + 0.1)
                 this.rateY = (Math.random() + 0.1)
                 // 开启计数器，控制弹球移动
-                this.timer = setInterval(()=>{
+                this.timer = setInterval(() => {
                     // 到达右侧边缘进行反弹
-                    if (this.ballX + this.rateX  >= 440 - 30) {
+                    if (this.ballX + this.rateX >= 440 - 30) {
                         this.rateX *= -1
                     }
                     // 到达左侧边缘进行反弹
@@ -95,24 +100,24 @@
                         if (this.boardX <= this.ballX + 30 && this.boardX + 80 >= this.ballX) {
                             this.rateY *= -1
                         } else {
-                        // 没有接住弹球，游戏结束
+                            // 没有接住弹球，游戏结束
                             clearInterval(this.timer)
                             this.fail = true
                         }
                     }
-                },2)
+                }, 2)
             },
             methods: {
                 // 控制挡板移动
-                keydown(event){
+                keydown(event) {
                     if (event.key == "ArrowLeft") {
-                        if (this.boardX  > 10) {
+                        if (this.boardX > 10) {
                             this.boardX -= 20
-                        } 
+                        }
                     } else if (event.key == "ArrowRight") {
-                        if (this.boardX  < 440 - 80) {
+                        if (this.boardX < 440 - 80) {
                             this.boardX += 20
-                        } 
+                        }
                     }
                 },
                 enterKeyup() {
@@ -123,4 +128,5 @@
         Vue.createApp(App).mount("#Application") 
     </script>
 </body>
+
 </html>

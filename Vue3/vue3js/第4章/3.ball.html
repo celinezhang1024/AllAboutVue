@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>圆球游戏</title>
+    <title>1. 跟随小球</title>
     <script src="https://unpkg.com/vue@next"></script>
     <style>
         body {
             margin: 0;
             padding: 0;
         }
+
         .container {
             margin: 0;
             padding: 0;
@@ -20,53 +22,60 @@
             background-color: blanchedalmond;
             display: inline;
         }
+
         .ball {
-            position:absolute;
+            position: absolute;
             width: 60px;
             height: 60px;
-            left:100px;
-            top:100px;
+            left: 100px;
+            top: 100px;
             background-color: red;
             border-radius: 30px;
-            z-index:100
+            z-index: 100
         }
     </style>
 </head>
+
 <body>
     <div id="Application">
         <div class="container" @mousemove.stop="move">
             <div class="ball" :style="{left: offsetX+'px', top:offsetY+'px'}">
             </div>
+            <div>1. clientX: 相对于当前body可视区域的坐标</div>
+            <div>2. pageX: 相对于整个页面的坐标</div>
+            <div>3. screenX: 相对于设备屏幕的坐标</div>
+            <div>4. offsetX: 相对于父容器区域的坐标</div>
         </div>
     </div>
     <script>
         const App = {
             data() {
-               return {
-                    offsetX:0,
-                    offsetY:0
-               }
+                return {
+                    offsetX: 0,
+                    offsetY: 0
+                }
             },
             methods: {
-               move(event) {
-                   if (event.clientX + 30 > 440) {
+                move(event) {
+                    if (event.clientX + 30 > 440) {
                         this.offsetX = 440 - 60
-                   } else if (event.clientX - 30 < 0) {
+                    } else if (event.clientX - 30 < 0) {
                         this.offsetX = 0
-                   } else {
+                    } else {
                         this.offsetX = event.clientX - 30
-                   }
-                   if (event.clientY + 30 > 440) {
+                    }
+                    if (event.clientY + 30 > 440) {
                         this.offsetY = 440 - 60
-                   } else if (event.clientY - 30 < 0) {
+                    } else if (event.clientY - 30 < 0) {
                         this.offsetY = 0
-                   } else {
+                    } else {
                         this.offsetY = event.clientY - 30
-                   }
-               }
+                    }
+                }
             }
         }
         Vue.createApp(App).mount("#Application") 
     </script>
 </body>
+
 </html>

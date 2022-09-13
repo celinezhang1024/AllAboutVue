@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,29 +8,43 @@
     <title>事件绑定</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
+
 <body>
     <div id="Application">
-       <div>点击次数:{{count}}</div>
-       <button @click="click(2), log($event)">点击</button>
-       <div @click.stop="click1" style="border:solid red">
+        <div>点击次数:{{count}}</div>
+        <button @click="click(2), log($event)">1. 触发多个点击事件</button>
+        <h1>2. 事件修饰符</h1>
+        <h1>3. 事件的传递,默认冒泡，从内到外。内层=>中层=>外层</h1>
+        <div @click.stop="click1" style="border:solid red">
             外层
-           <div @click.stop="click2" style="border:solid red">
-               中层
-               <div @click.stop.once="click3" style="border:solid red">
-                   点击
-               </div>
-           </div>
-       </div>
+            <div @click.stop="click2" style="border:solid red">
+                中层
+                <div @click.stop.once="click3" style="border:solid red">
+                    内层
+                </div>
+            </div>
+        </div>
+
+        <h1>4. 捕获，从外到内。外层=>中层=>内层</h1>
+        <div @click.capture.stop="click1" style="border:solid red">
+            外层
+            <div @click.capture.stop="click2" style="border:solid red">
+                中层
+                <div @click.capture.stop.once="click3" style="border:solid red">
+                    内层
+                </div>
+            </div>
+        </div>
     </div>
     <script>
         const App = {
             data() {
-               return {
-                   count:0
-               }
+                return {
+                    count: 0
+                }
             },
             methods: {
-                click(step) { 
+                click(step) {
                     this.count += step
                 },
                 log(event) {
@@ -49,4 +64,5 @@
         Vue.createApp(App).mount("#Application") 
     </script>
 </body>
+
 </html>
