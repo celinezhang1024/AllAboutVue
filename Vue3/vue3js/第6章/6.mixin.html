@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue组件Mixin</title>
+    <title>6. Mixin混入</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
+
 <body>
     <div id="Application">
         <my-com></my-com>
@@ -16,23 +18,26 @@
     </div>
     <script>
         const App = Vue.createApp({})
+        // 1. 定义混入
         App.mixin({
-            props:["title"],
+            props: ["title"],
             data() {
                 return {
-                    a:"a",
-                    b:"b",
-                    c:"c"
+                    a: "a",
+                    b: "b",
+                    c: "c"
                 }
             },
-            mounted () {
+            // 3， 方法优先级，全局混入先被执行
+            mounted() {
                 console.log("Mixin对象mounted")
             }
         })
+        // 2. 默认就会有全局的混入
         const com = {
-            data(){
+            data() {
                 return {
-                    c:"C"
+                    c: "C"
                 }
             },
             // 组件被创建后会调用，用来测试混入的数据情况
@@ -40,26 +45,27 @@
                 // a,b,c,d都存在
                 console.log(this.$data)
             },
-            mounted () {
+            mounted() {
+                // 4. 再执行组件的
                 console.log("组件本身mounted")
             }
         }
         const com1 = {
-            template:`
+            template: `
                 <div style="border:red solid 2px;">
                     {{title}}
                 </div>
             `
         }
         const com2 = {
-            template:`
+            template: `
                 <div style="border:blue solid 2px;">
                     {{title}}
                 </div>
             `
         }
         const com3 = {
-            template:`
+            template: `
                 <div style="border:green solid 2px;">
                     {{title}}
                 </div>
@@ -72,4 +78,5 @@
         App.mount("#Application") 
     </script>
 </body>
+
 </html>

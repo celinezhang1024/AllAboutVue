@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue组件数据注入</title>
+    <title>5. 数据注入</title>
     <script src="https://unpkg.com/vue@next"></script>
-    <style>
-        * {
-            
-        }
-    </style>
 </head>
+
 <body>
     <div id="Application">
         <my-list :count="5">
@@ -20,15 +17,16 @@
     <script>
         const App = Vue.createApp({})
         const listCom = {
-            props:{   
+            props: {
                 count: Number
             },
-            provide(){
+            // 1. 定义 listCount
+            provide() {
                 return {
-                    listCount:this.count
+                    listCount: this.count
                 }
             },
-            template:`
+            template: `
                 <div style="border:red solid 10px;">
                     <my-item v-for="i in this.count" :index="i"></my-item>
                 </div>
@@ -36,18 +34,20 @@
         }
         const itemCom = {
             props: {
-                index:Number
+                index: Number
             },
-            template:`
+            template: `
                 <div style="border:blue solid 10px;"><my-label :index="this.index"></my-label></div>
             `
         }
         const labelCom = {
             props: {
-                index:Number
+                index: Number
             },
-            inject:['listCount'],
-            template:`
+            // 2. 注入 listCount
+            inject: ['listCount'],
+            // 3. 使用 listCount
+            template: `
                 <div>{{index}}/{{this.listCount}}</div>
             `
         }
@@ -57,4 +57,5 @@
         App.mount("#Application") 
     </script>
 </body>
+
 </html>

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue组件Props</title>
+    <title>4. Props</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
+
 <body>
     <div id="Application">
         <comp1 :count="11"></comp1>
@@ -14,34 +16,61 @@
     <script>
         const App = Vue.createApp({})
         const comp1 = {
-            props:{   
+            // 1. 简写
+            props: ["count"],
+            // 2. 复杂
+            props: {
                 count: {
-                    validator: function(value) {
-                        if (typeof(value) != 'number' || value <= 10) {
+                    type: Number,
+                    required: true,
+                    default: 10
+                }
+            },
+            // 3. 只有类型
+            props: {
+                count: Number
+            },
+            // 4. 多种类型
+            props: {
+                count: [String, Number]
+            },
+            // 5. 默认
+            props: {
+                count: {
+                    default: function () {
+                        return 10;
+                    }
+                }
+            },
+            // 6. 自定义验证
+            props: {
+                count: {
+                    validator: function (value) {
+                        if (typeof (value) != 'number' || value <= 10) {
                             return false
                         }
                         return true
                     }
                 }
             },
-            data(){
+            data() {
                 return {
-                    thisCount:this.count
+                    thisCount: this.count
                 }
             },
-            methods:{
-                click(){
+            methods: {
+                click() {
                     this.thisCount += 1
                 }
             },
             computed: {
-                innerCount:{
-                    get(){
+                innerCount: {
+                    get() {
                         return this.count + this.thisCount
                     }
                 }
             },
-            template:`
+            template: `
                 <button @click="click">点击</button>
                 <div>计数:{{this.thisCount}}</div>
             `
@@ -50,4 +79,5 @@
         App.mount("#Application") 
     </script>
 </body>
+
 </html>
