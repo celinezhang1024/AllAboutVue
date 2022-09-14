@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue动态组件</title>
+    <title>4. 动态组件</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
+
 <body>
     <div id="Application">
-        <input type="radio" value="page1" v-model="page"/>页面1
-        <input type="radio" value="page2" v-model="page"/>页面2
+        <input type="radio" value="page1" v-model="page" />页面1
+        <input type="radio" value="page2" v-model="page" />页面2
+        <br />
+        :is="page"动态插槽
         <component :is="page"></component>
     </div>
     <script>
         const App = Vue.createApp({
-            data(){
+            data() {
                 return {
-                    page:"page1"
+                    page: "page1"
                 }
             }
         })
         const page1 = {
-            template:`<div style="color:red">
+            template: `<div style="color:red">
                     页面组件1
                 </div>`
         }
         const page2 = {
-            template:`<div style="color:blue">
+            template: `<div style="color:blue">
                     页面组件2
                 </div>`
         }
@@ -36,4 +40,5 @@
         App.mount("#Application") 
     </script>
 </body>
+
 </html>

@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue组件插槽</title>
+    <title>3. 插槽</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
+
 <body>
     <div id="Application">
         <my-container2>
-            <template #header>
-                <h1>这里是头部元素</h1>
+            <!-- 1.具名插槽 -->
+            <template v-slot:header>
+                这里是头部元素 <br />
+                2. 注入插槽 两种写法：v-slot:header = #header
+
             </template>
-        
+            <!-- <template #header>
+                <h1>这里是头部元素</h1>
+            </template> -->
+
             <template #main>
                 <p>内容部分</p>
                 <p>内容部分</p>
             </template>
-        
+
             <template #footer>
                 <p>这里是尾部元素</p>
             </template>
@@ -28,7 +36,8 @@
         const App = Vue.createApp({
         })
         const container2Component = {
-            template:`<div>
+            template: `<div>
+                    1. 定义插槽
                     <slot name="header"></slot>
                     <hr/>
                     <slot name="main"></slot>
@@ -38,7 +47,7 @@
         }
         App.component("my-container2", container2Component)
         const containerComponent = {
-            template:`<div style="border-style:solid;border-color:red; border-width:10px">
+            template: `<div style="border-style:solid;border-color:red; border-width:10px">
                     <slot>插槽的默认内容</slot>
                 </div>`
         }
@@ -46,4 +55,5 @@
         App.mount("#Application") 
     </script>
 </body>
+
 </html>
