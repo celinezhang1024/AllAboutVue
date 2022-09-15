@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@next"></script>
-    <title>关键帧动画</title>
+    <title>2. 关键帧动画</title>
 </head>
+
 <body>
     <style>
         @keyframes animation1 {
@@ -15,29 +17,34 @@
                 width: 100px;
                 height: 100px;
             }
+
             25% {
                 background-color: orchid;
                 width: 200px;
                 height: 200px;
             }
+
             75% {
                 background-color: green;
                 width: 150px;
                 height: 150px;
             }
+
             100% {
                 background-color: blue;
                 width: 200px;
                 height: 200px;
             }
         }
+
         .demo {
             width: 100px;
             height: 100px;
             background-color: red;
 
-            
+
         }
+
         .demo-ani {
             /* 设置关键帧动画名称 */
             animation-name: animation1;
@@ -54,22 +61,22 @@
             /* 设置播放动画的延迟时间 */
             animation-delay: 1s;
             /* 设置动画播放结束应用到元素的样式 */
-            animation-fill-mode:forwards;
+            animation-fill-mode: forwards;
             width: 200px;
             height: 200px;
             background-color: blue;
         }
     </style>
-    <div id="Application">  
+    <div id="Application">
         <div :class="cls" @click="run">
 
-        </div>   
+        </div>
     </div>
     <script>
         const App = Vue.createApp({
-            data(){
+            data() {
                 return {
-                    cls:"demo"
+                    cls: "demo"
                 }
             },
             methods: {
@@ -85,4 +92,5 @@
         App.mount("#Application") 
     </script>
 </body>
+
 </html>

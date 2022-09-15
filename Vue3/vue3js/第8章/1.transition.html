@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@next"></script>
-    <title>Transition过渡</title>
+    <title>1. Transition过渡</title>
 </head>
+
 <body>
     <style>
         .demo {
@@ -18,23 +20,24 @@
             transition-timing-function: linear;
             transition-delay: 2s;
         }
+
         .demo-ani {
             width: 200px;
             height: 200px;
             background-color: blue;
-            transition: width 2s, height 2s,background-color 2s;
+            transition: width 2s, height 2s, background-color 2s;
         }
     </style>
-    <div id="Application">  
+    <div id="Application">
         <div :class="cls" @click="run">
 
-        </div>   
+        </div>
     </div>
     <script>
         const App = Vue.createApp({
-            data(){
+            data() {
                 return {
-                    cls:"demo"
+                    cls: "demo"
                 }
             },
             methods: {
@@ -50,4 +53,5 @@
         App.mount("#Application") 
     </script>
 </body>
+
 </html>

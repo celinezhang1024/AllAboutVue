@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>用户列表</title>
+    <title>8. 用户列表</title>
     <script src="https://unpkg.com/vue@next"></script>
     <style>
         .container {
             margin: 50px;
         }
+
         .content {
             margin: 20px;
         }
+
         .tab {
             width: 300px;
             position: absolute;
         }
+
         .item {
             border: gray 1px solid;
             width: 148px;
@@ -24,6 +28,7 @@
             transition: all 0.8s ease;
             display: inline-block;
         }
+
         .list-enter-active {
             transition: all 1s ease;
         }
@@ -36,29 +41,31 @@
         .list-move {
             transition: transform 1s ease;
         }
+
         .list-leave-active {
             position: absolute;
             transition: all 1s ease;
         }
     </style>
 </head>
+
 <body>
     <div id="Application">
     </div>
     <script>
         let mock = [
             {
-                name:"小王",
-                sex:0
-            },{
-                name:"小红",
-                sex:1
-            },{
-                name:"小李",
-                sex:1
-            },{
-                name:"小张",
-                sex:0
+                name: "小王",
+                sex: 0
+            }, {
+                name: "小红",
+                sex: 1
+            }, {
+                name: "小李",
+                sex: 1
+            }, {
+                name: "小张",
+                sex: 0
             }
         ]
         const App = Vue.createApp({
@@ -67,7 +74,7 @@
                 const showDatas = Vue.ref([])
                 const queryAllData = () => {
                     // 模拟请求过程
-                    setTimeout(()=>{
+                    setTimeout(() => {
                         showDatas.value = mock
                     }, 3000);
                 }
@@ -80,8 +87,8 @@
                     searchKey.value = ""
                     if (sexFliter.value == -1) {
                         showDatas.value = mock
-                    } else  {
-                        showDatas.value = mock.filter((data)=>{
+                    } else {
+                        showDatas.value = mock.filter((data) => {
                             return data.sex == sexFliter.value
                         })
                     }
@@ -90,9 +97,9 @@
                     sexFliter.value = -1
                     if (searchKey.value.length == 0) {
                         showDatas.value = mock
-                    } else  {
-                        showDatas.value = mock.filter((data)=>{
-                            return data.name.search(searchKey.value) != -1 
+                    } else {
+                        showDatas.value = mock.filter((data) => {
+                            return data.name.search(searchKey.value) != -1
                         })
                     }
                 }
@@ -134,4 +141,5 @@
         App.mount("#Application") 
     </script>
 </body>
+
 </html>
