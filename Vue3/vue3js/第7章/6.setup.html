@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,31 +10,35 @@
     <style>
     </style>
 </head>
+
 <body>
-    <div id="Application"> 
-        <com name="组件名"></com>    
+    <div id="Application">
+        <com name="组件名"></com>
     </div>
-    <script>   
+    <script>
         const App = Vue.createApp({})
-        App.component("com",{
-            setup (props, context) {
+        App.component("com", {
+            setup(props, context) { // 2个参数：参数,js对象（attrs,slots,emit）
                 let data = "setup的数据";
-                Vue.onMounted(()=>{
-                    console.log("setup定义的mounted")
+                return {data} // 2. *** + 这里需要return，template才可以使用
+                Vue.onMounted(() => {
+                    console.log("1.1 先调用 全局的 setup定义的mounted")
                 })
-                return () => Vue.h('div', [data])
+                // return () => Vue.h('div', [data]) // 1. *** 用返回渲染函数：vue.h
             },
             props: {
                 name: String,
             },
             mounted() {
-                console.log("组件内定义的mounted")
+                console.log("1.2 再调用 组件内 定义的mounted")
             }
-            // template:`
-            //     <div>{{data}}</div>
-            // `
+            // 2. *** 或者 定义template
+            , template: `
+                <div>{{data}}</div>
+            `
         })
         App.mount("#Application") 
     </script>
 </body>
+
 </html>

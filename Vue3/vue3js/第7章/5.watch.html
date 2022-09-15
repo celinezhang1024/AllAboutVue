@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watch</title>
+    <title>5. Watch</title>
     <script src="https://unpkg.com/vue@next"></script>
     <style>
     </style>
 </head>
+
 <body>
-    <div id="Application">     
+    <div id="Application">
     </div>
-    <script>   
+    <script>
         const App = Vue.createApp({
-            setup () {
+            setup() {
                 let a = Vue.reactive({
-                    data:0
+                    data: 0
                 });
                 let b = Vue.ref(0);
-                Vue.watch([()=>{
-                    // 监听a对象的data属性变化
+                Vue.watch([() => {
+                    // 1. 队列，监听a对象的data属性变化
                     return a.data
-                },b], ([valueA, valueB], [oldA, oldB])=>{
-                    // 新值和旧值都可以获取到
-                    console.log(valueA, oldA)
-                    console.log(valueB, oldB)
+                }, b], ([valueA, valueB], [oldA, oldB]) => {
+                    // 2. 回调，新值和旧值都可以获取到
+                    console.log(valueA, oldA) // 1 0
+                    console.log(valueB, oldB) // 3 0
                 })
                 a.data = 1;
                 b.value = 3;
@@ -34,4 +36,5 @@
         App.mount("#Application") 
     </script>
 </body>
+
 </html>

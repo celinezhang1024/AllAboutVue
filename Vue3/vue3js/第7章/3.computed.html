@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue计算变量</title>
+    <title>3. computed计算变量</title>
     <script src="https://unpkg.com/vue@next"></script>
     <style>
     </style>
 </head>
+
 <body>
-    <div id="Application">     
+    <div id="Application">
     </div>
-    <script>   
+    <script>
         const App = Vue.createApp({
-            setup () {
+            setup() {
                 let a = Vue.ref(1);
                 let b = Vue.ref(2);
+                // 1. 计算：在数据发生变化时监听
                 let sum = Vue.computed({
-                    set (value){
+                    set(value) {
                         a.value = value
                         b.value = value
                     },
-                    get () {
+                    get() {
                         return a.value + b.value
                     }
                 });
@@ -31,14 +34,14 @@
                     b.value += 2;
                     if (sum.value > 10) {
                         sum.value = 0
-                    } 
+                    }
                 }
                 return {
                     sum,
                     click
                 }
             },
-            template:`
+            template: `
                 <h1>测试数据：{{sum}}</h1>
                 <button @click="click">点击</button>
             `
@@ -46,4 +49,5 @@
         App.mount("#Application") 
     </script>
 </body>
+
 </html>
