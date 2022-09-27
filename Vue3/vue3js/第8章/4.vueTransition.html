@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@next"></script>
-    <title>Vue过渡动画</title>
+    <title>4. Vue过渡动画-类</title>
 </head>
+
 <body>
     <style>
         @keyframes keyframe-in {
@@ -15,72 +17,89 @@
                 height: 0px;
                 background-color: red;
             }
+
             to {
                 width: 100px;
                 height: 100px;
                 background-color: blue;
             }
         }
+
         @keyframes keyframe-out {
             from {
                 width: 100px;
                 height: 100px;
                 background-color: blue;
             }
+
             to {
                 width: 0px;
                 height: 0px;
                 background-color: red;
             }
-        }       
+        }
+
         .demo {
             width: 100px;
             height: 100px;
             background-color: blue;
         }
+
+        /* 1. 即将被插入 */
         .ani-enter-from {
             width: 0px;
             height: 0px;
             background-color: red;
         }
+
+        /* 2. 在整个插入过渡中都被添加 */
         .ani-enter-active {
             animation: keyframe-in 3s;
         }
+
+        /* 3. 插入后立即被添加 */
         .ani-enter-to {
             width: 100px;
             height: 100px;
             background-color: blue;
         }
+
+        /* 4. 即将被移除时被添加 */
         .ani-leave-from {
             width: 100px;
             height: 100px;
             background-color: blue;
         }
+
+        /* 5. 整个移除时被添加 */
         .ani-leave-active {
             animation: keyframe-out 3s;
         }
+
+        /* 6. 设置移除的终止状态 */
         .ani-leave-to {
             width: 0px;
             height: 0px;
             background-color: red;
         }
     </style>
-    <div id="Application">  
+    <div id="Application">
+        Vue约定类：enter,leave 和 from,to
         <button @click="click">显示/隐藏</button>
         <transition name="ani">
             <div v-if="show" class="demo">
-            </div>   
+            </div>
         </transition>
     </div>
     <script>
         const App = Vue.createApp({
-            data(){
+            data() {
                 return {
-                    show:false
+                    show: false
                 }
             },
-            methods:{
-                click(){
+            methods: {
+                click() {
                     this.show = !this.show
                 }
             }
@@ -88,4 +107,5 @@
         App.mount("#Application") 
     </script>
 </body>
+
 </html>

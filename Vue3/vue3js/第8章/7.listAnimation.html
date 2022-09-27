@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@next"></script>
-    <title>Vue过渡动画</title>
+    <title>7. Vue过渡动画-列表</title>
 </head>
+
 <body>
-    <style>      
+    <style>
         .list-enter-active,
         .list-leave-active {
             transition: all 1s ease;
@@ -23,29 +25,29 @@
             transition: transform 1s ease;
         }
     </style>
-    <div id="Application">  
+    <div id="Application">
         <button @click="click">添加元素</button>
         <button @click="dele">删除元素</button>
         <button @click="sort">重排元素</button>
         <transition-group name="list">
             <div v-for="item in items" :key="item">
-            元素：{{ item }}
+                元素：{{ item }}
             </div>
         </transition-group>
     </div>
     <script>
         const App = Vue.createApp({
-            data(){
+            data() {
                 return {
-                    items:[1,2,3,4,5]
+                    items: [1, 2, 3, 4, 5]
                 }
             },
-            methods:{
+            methods: {
                 click() {
-                    this.items.push(this.items[this.items.length-1] + 1)
+                    this.items.push(this.items[this.items.length - 1] + 1)
                 },
                 dele() {
-                    if(this.items.length > 0) {
+                    if (this.items.length > 0) {
                         this.items.pop()
                     }
                 },
@@ -57,4 +59,5 @@
         App.mount("#Application") 
     </script>
 </body>
+
 </html>
