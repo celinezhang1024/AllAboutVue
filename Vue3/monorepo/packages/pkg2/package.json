@@ -1,0 +1,14 @@
+{
+  "name": "pkg2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test":"jest" 
+  },
+  "dependencies": {
+    "pkg1": "workspace:pkg1@*"
+  },
+  "author": "",
+  "license": "ISC"
+}
