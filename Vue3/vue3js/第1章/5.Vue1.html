@@ -9,30 +9,24 @@
 </head>
 
 <body>
-    <div style="text-align: center;" id="Application">
-        <div>{{count}}</div>
-        <button v-on:click="addCount">add 1</button>
+    <div id="Application">
+        {{count}}
+        <button v-on:click="addCount">Add count</button>
     </div>
     <script>
-        // 定义一个Vue组件, 名为App
-        const App = {
-            // 定义组件中的数据
+        var app = {
             data() {
                 return {
-                    // 目前我们只用到count数据
                     count: 0
                 }
             },
-            // 定义组件中的函数
             methods: {
-                // 实现点击按钮的方法
                 addCount() {
-                    this.count += 1;
+                    this.count++;
                 }
             }
         }
-        // 将Vue组件绑定到页面上id为Application的元素上
-        Vue.createApp(App).mount("#Application")
+        Vue.createApp(app).mount("#Application")
     </script>
 </body>
 
