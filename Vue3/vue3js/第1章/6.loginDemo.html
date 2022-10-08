@@ -14,6 +14,7 @@
         <!-- v-model 双绑 -->
         <div v-if="noLogin">账号：<input v-model="userName" type="text" /></div>
         <div v-if="noLogin">密码：<input v-model="password" type="password" /></div>
+        <!-- 单击指令 -->
         <div v-on:click="click"
             style="border-radius: 30px;width: 100px; margin: 20px auto; color: white; background-color: blue;">
             {{buttonTitle}}</div>

@@ -9,9 +9,9 @@
         var count = 0
         function clickFunc() {
             // 内部文本
-            document.getElementById("h1").innerText = `${++count}`
+            document.getElementById("h1").innerHTML = `数值：${++count}`;
             // 显示
-            document.getElementById("img").style.visibility = count % 2 == 0 ? "visible" : "hidden"
+            document.getElementById("img").style.visibility = count % 2 ? 'hidden' : 'visible';
         }
     </script>
     <script>
@@ -74,7 +74,7 @@
 
 <body>
     <div style="text-align: center;">
-        <h1 id="h1" style="font-size: 40px;">数值:0</h1>
+        <h1 id="h1" style="font-size: 40px;">数值：0</h1>
         <div id="img" style="visibility: visible;">
             <img src="demo.png" width="200px">
         </div>
