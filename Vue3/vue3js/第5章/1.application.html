@@ -11,6 +11,9 @@
 
 <body>
     <div id="Application">
+        <div>{{countString}} 模板插值
+            {{countString2}}
+        </div>
         <button @click="click">单击</button>
     </div>
     <script>
@@ -23,11 +26,17 @@
             data() {
                 return appData
             },
+            // 1. 计算的方法
             computed: {
+                // 1. 写法
                 countString: {
                     get() {
-                        return this.count + "次"
+                        return this.data.count + "次"
                     }
+                },
+                // 2. 写法
+                countString2() {
+                    return this.data.count + "times"
                 }
             },
             methods: {
@@ -35,13 +44,15 @@
                     this.data.count += 1
                 }
             },
+            // 2. 监听的方法
             watch: {
+                // 当data改变时触发
                 data: {
                     handler(value, oldValue) {
                         console.log(value, oldValue)
                     },
                     deep: true
-                }
+                },
             }
         })
         App.mount("#Application") 

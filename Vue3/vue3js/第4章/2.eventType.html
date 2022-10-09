@@ -12,6 +12,7 @@
 <body>
     <div id="Application">
         <div>- 常用事件类型</div>
+        <!-- 单击左键 -->
         <div @click.left="click">1. 单击事件</div>
         <div @dblclick="dblclick">1. 双击事件</div>
         <input @focus="focus" @blur="blur" @change="change" @select="select">3. 焦点</input>
@@ -19,6 +20,7 @@
         <div @mouseup="mouseup">5. 鼠标抬起</div>
         <div @mousemove="mousemove">6. 鼠标移动</div>
         <div @mouseout="mouseout" @mouseover="mouseover">7. 鼠标移入移出</div>
+        <!-- 多个按键组合 -->
         <input @keydown="keydown" @keyup.alt.enter="keyup">8. 按键弹起</input>
     </div>
     <script>

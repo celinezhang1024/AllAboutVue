@@ -49,9 +49,9 @@
         }
         // 创建组件并获取到组件实例
         let instance = Vue.createApp(App).mount("#Application")
-        // 可以获取到组件中的data数据
+        // 1. 可以获取到组件中的data数据
         console.log(instance.count)
-        // 可以获取到组件中的data数据 
+        // 2. 可以获取到组件中的data数据 
         // !!!!! 全局对象 instance.$data
         console.log(instance.$data.count)
         // 修改属性
