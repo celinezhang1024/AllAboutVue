@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>1. 添加条件断点. Source面板 右键：添加Conditional BreakPoint</div>
+    <div>2. 浏览器导入npm包. 安装Console Importer Plugin. $i('lodash')</div>
+    <div>3. 重新发送XHR request. a. 右键Replay XHR b. Copy as fetch, paste it to the Console panel</div>
+    <div>4. 改变dev tools theme. Control + Shift + P, Switch to light theme</div>
+    <div>5. 复制对象内容. 在Console panel里面输入copy(obj)</div>
+    <div>6. 获取鼠标选中的dom元素. Console panel输入$0.offsetHeight</div>
+    <div>7. 网页截屏. Control + Shift + P, a. Capture full size screenshot b. Capture node screenshot</div>
+    <div>8. Alt + Click. 展开所有嵌套的DOM Node</div>
+    <div>9. 获取上次console面版的结果，'fatfish'.split('') $_.reverse() $_.join()</div>
+    <div>10. 使用$('body') $$('div') 快速选择DOM 元素</div>
+    <script>
+        const foods = [
+            {
+                name: '🍔',
+                price: 10
+            },
+            {
+                name: '🍫',
+                price: 15
+            },
+            {
+                name: '🍵',
+                price: 20
+            },
+        ]
+        foods.forEach((v) => {
+            // debugger
+            console.log(v.name, v.price)
+        })
+    </script>
+</body>
+
+</html>
