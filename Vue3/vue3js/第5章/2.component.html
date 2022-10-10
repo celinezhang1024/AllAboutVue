@@ -10,9 +10,12 @@
 </head>
 
 <body>
+    <br />
+
     <div id="Application">
-        <my-input v-model="inputText"></my-input>
-        <div>{{inputText}}</div>
+        <my-input v-model="inputText" title="1. 组件的外部属性-titile" @myclick="myClick"></my-input>
+
+        <div>父组件：{{inputText}}</div>
         <button @click="this.inputText = ''">清空</button>
     </div>
     <script>
@@ -22,15 +25,30 @@
                     inputText: ""
                 }
             },
+            methods: {
+                myClick() {
+                    this.inputText = ''
+                    console.log("I'm your father")
+                }
+            }
         })
         const inputComponent = {
-            props: ["modelValue"],
+            props: ["modelValue", "title"],
             methods: {
                 action(event) {
+                    // 传递给父组件
                     this.$emit('update:modelValue', event.target.value)
                 }
             },
-            template: `<div><span>输入框：</span><input :value="modelValue" @input="action"/></div>`
+            template: `<div><div>{{title}}</div>
+            <hr />
+            <div>2. 组件的事件-子传父\${emit}</div>
+            <button @click="$emit('myclick')">内部清空</button>
+            <hr />
+            <div>3. 组件的v-model-绑定父组件双绑inputText</div>
+            <span>输入框：</span><input :value="modelValue" @input="action"/>
+            <hr />
+            </div>`
         }
         App.component("my-input", inputComponent)
         App.mount("#Application") 
