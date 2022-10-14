@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>1. 组件生命周期</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
+
 <body>
     <div id="Application">
         <sub-com v-if="show">
@@ -16,28 +18,34 @@
     </div>
     <script>
         const sub = {
-            beforeCreate () {
+            data() {
+                return {
+                    state1: "关",
+                    state2: "关"
+                }
+            },
+            beforeCreate() {
                 console.log("组件即将创建前")
             },
-            created () {
+            created() {
                 console.log("组件创建完成")
             },
-            beforeMount () {
+            beforeMount() {
                 console.log("组件被即将挂载前")
             },
-            mounted () {
+            mounted() {
                 console.log("组件挂载完成")
             },
-            beforeUpdate () {
+            beforeUpdate() {
                 console.log("组件即将更新前")
             },
-            updated () {
+            updated() {
                 console.log("组件更新完成")
             },
-            activated () {
+            activated() {
                 console.log("被缓存的组件激活时调用")
             },
-            deactivated () {
+            deactivated() {
                 console.log("被缓存的组件停用时调用")
             },
             beforeUnmount() {
@@ -55,28 +63,30 @@
             renderTriggered(event) {
                 console.log("虚拟DOM被触发渲染时调用")
             },
-            template:`
+            template: `
                 <div>
                     <slot></slot>
                 </div>
             `
         }
         const App = Vue.createApp({
-            data(){
+            data() {
                 return {
-                    show:true,
-                    content:0
+                    show: true,
+                    content: 0
                 }
             },
             methods: {
-                changeShow(){
+                changeShow() {
                     // this.show = !this.show
                     this.content += 1
                 }
             }
         })
+        // 1. 全局组件
         App.component("sub-com", sub)
         App.mount("#Application") 
     </script>
 </body>
+
 </html>

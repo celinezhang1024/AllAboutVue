@@ -23,6 +23,7 @@
             `
         }
         const comp1 = {
+            // 2. 局部组件
             components: {
                 'comp2': comp2
             },
@@ -33,7 +34,7 @@
                 </div>
             `
         }
-
+        // 1. 全局组件
         App.component("comp1", comp1)
         App.mount("#Application") 
     </script>

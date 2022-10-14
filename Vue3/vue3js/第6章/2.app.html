@@ -11,13 +11,19 @@
 
 <body>
     <div id="Application">
-        <sub-com>
-            {{content}}
+        {{content}}
+        <sub-com :content="content">
         </sub-com>
     </div>
     <script>
-        const App = Vue.createApp({})
-        // 1. 全局方法 兜底
+        const App = Vue.createApp({
+            data() {
+                return {
+                    content: "hello world"
+                }
+            }
+        })
+        // 1. 全局方法 兜底 ！
         App.config.errorHandler = (err, vm, info) => {
             // 捕获运行中产生的异常
             // err参数是错误对象 info为具体的错误信息
@@ -26,11 +32,12 @@
             // 捕获运行中产生的警告
             // msg是警告信息 trace是组件的关系回溯
         }
-        // 2. 配置全局数据
+        // 2. 配置全局数据 ！
         App.config.globalProperties = {
             version: "1.0.0"
         }
         const sub = {
+            props: ["content"],
             directives: {
                 // 组件内部的自定义指令
                 getfocus: {
@@ -42,7 +49,9 @@
             mounted() {
                 // 在任意组件的任意地方都可以通过this直接访问全局数据
                 console.log(this.version)
-            }
+            },
+            template: `<input v-model="content" />`
+
         }
         App.component("sub-com", sub)
         App.mount("#Application") 

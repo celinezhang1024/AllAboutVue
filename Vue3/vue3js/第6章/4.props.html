@@ -16,9 +16,9 @@
     <script>
         const App = Vue.createApp({})
         const comp1 = {
-            // 1. 简写
+            // 1. 简写：变量名
             props: ["count"],
-            // 2. 复杂
+            // 2. 复杂：类型、必填、默认值
             props: {
                 count: {
                     type: Number,
@@ -26,15 +26,15 @@
                     default: 10
                 }
             },
-            // 3. 只有类型
+            // 3. only 类型
             props: {
                 count: Number
             },
-            // 4. 多种类型
+            // 4. multiple 类型
             props: {
                 count: [String, Number]
             },
-            // 5. 默认
+            // 5. 默认值 返回方法
             props: {
                 count: {
                     default: function () {
@@ -42,7 +42,7 @@
                     }
                 }
             },
-            // 6. 自定义验证
+            // 6. 验证
             props: {
                 count: {
                     validator: function (value) {
@@ -53,6 +53,7 @@
                     }
                 }
             },
+            // data方法返回一个 响应式对象
             data() {
                 return {
                     thisCount: this.count
@@ -63,6 +64,7 @@
                     this.thisCount += 1
                 }
             },
+            // 计算属性
             computed: {
                 innerCount: {
                     get() {
