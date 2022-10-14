@@ -47,11 +47,11 @@
     <div id="Application">
         <!-- 游戏区域 -->
         <div class="container">
-            <!-- 底部挡板 -->
+            <!-- 1. 底部挡板 -->
             <div class="board" :style="{left: boardX + 'px'}"></div>
-            <!-- 弹球 -->
+            <!-- 2. 弹球 -->
             <div class="ball" :style="{left: ballX+'px', top: ballY+'px'}"></div>
-            <!-- 游戏结束提示 -->
+            <!-- 3. 游戏结束提示 -->
             <h1 v-if="fail" style="text-align: center;">游戏失败</h1>
         </div>
     </div>
@@ -59,15 +59,15 @@
         const App = {
             data() {
                 return {
-                    // 控制挡板位置
+                    // 1. 控制挡板位置
                     boardX: 0,
-                    // 控制弹球位置
+                    // 2. 控制弹球位置
                     ballX: 0,
                     ballY: 0,
-                    // 控制弹球移动速度
+                    // 3. 控制弹球移动速度
                     rateX: 0.4,
                     rateY: 0.4,
-                    // 控制结束游戏提示的展示
+                    // 4. 控制结束游戏提示的展示
                     fail: false
                 }
             },
@@ -75,10 +75,10 @@
             mounted() {
                 // 添加键盘事件
                 this.enterKeyup();
-                // 随机弹球的运动速度和方向
+                // 1. 随机弹球的运动速度和方向
                 this.rateX = (Math.random() + 0.1)
                 this.rateY = (Math.random() + 0.1)
-                // 开启计数器，控制弹球移动
+                // 2. 开启计数器，控制弹球移动
                 this.timer = setInterval(() => {
                     // 到达右侧边缘进行反弹
                     if (this.ballX + this.rateX >= 440 - 30) {
@@ -108,7 +108,7 @@
                 }, 2)
             },
             methods: {
-                // 控制挡板移动
+                // 用户操作-控制挡板移动
                 keydown(event) {
                     if (event.key == "ArrowLeft") {
                         if (this.boardX > 10) {
