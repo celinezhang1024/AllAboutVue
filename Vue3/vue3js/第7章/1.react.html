@@ -22,7 +22,7 @@
         };
         // 2. 定义触发器，用来刷新数据
         let trigger = null;
-        
+
         handleA = {
             set(target, key, value) {
                 target[key] = value
@@ -30,6 +30,10 @@
                     // 数据变量的处理器，当数据发生变化时，调用触发器刷新
                     trigger()
                 }
+            },
+            get(target, key) {
+                console.log('GET a VALUE')
+                return target[key]
             }
         }
         handleB = {
@@ -38,6 +42,10 @@
                 if (trigger) {
                     trigger()
                 }
+            },
+            get(target, key) {
+                console.log('GET b VALUE')
+                return target[key]
             }
         }
         // 1. 进行对象的代理包装
