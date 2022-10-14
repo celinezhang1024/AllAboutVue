@@ -22,7 +22,6 @@
         };
         // 2. 定义触发器，用来刷新数据
         let trigger = null;
-
         handleA = {
             set(target, key, value) {
                 target[key] = value
@@ -55,12 +54,11 @@
         // 实现触发器逻辑
         trigger = () => {
             sum = pa.value + pb.value;
+            console.log(sum)
         };
         trigger();
-        console.log(sum);
         pa.value = 3;
-        pb.value = 4;
-        console.log(sum);
+        pb.value = 4; 
     </script>
 </body>
 
