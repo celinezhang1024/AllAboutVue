@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>provide</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="Application">
+        一、简单插槽
+        <componenta>喜羊羊</componenta>
+        二、注入插槽
+        <componentb>
+            <template v-slot:header>
+                header
+            </template>
+            <template #body>
+                body
+
+            </template>
+            <template #foot>
+                foot
+
+            </template>
+        </componentb>
+    </div>
+    <script>
+        const App = Vue.createApp({})
+        App.component("componenta", {
+            template: ` 
+             <div>
+                这是组件
+                <slot></slot>    
+            </div>
+            `
+        })
+        App.component("componentb", {
+            template: `
+                <div>
+                    注入插槽
+                    <slot name='header'></slot>
+                    <slot name='body'></slot>
+                    <slot name='foot'></slot>
+                </div>
+            `
+        })
+
+        App.mount("#Application")
+    </script>
+</body>
+
+</html>
