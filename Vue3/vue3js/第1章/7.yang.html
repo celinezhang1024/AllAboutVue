@@ -304,6 +304,7 @@
                         cardMap[clearItem.z][clearItem.y][clearItem.x] = 0;
                     }
                     cardItemList.reverse();
+                    console.log(cardMap)
                     this.cardMap = cardMap;
                     this.cardItemList = cardItemList;
                 },
@@ -521,6 +522,18 @@
 
         .clear-item {
             pointer-events: none;
+        }
+
+        .info-box {
+            position: fixed;
+            top: 0;
+            right: 0;
+            text-align: right;
+            pointer-events: none;
+        }
+
+        .info-box>span {
+            background-color: rgba(255, 0, 0, 0.2);
         }
     </style>
 </body>
